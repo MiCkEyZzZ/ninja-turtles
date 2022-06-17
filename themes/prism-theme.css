@@ -156,16 +156,6 @@ li > code[class*='language-'] {
 .token.entity {
     cursor: help;
 }
-strong {
-    font-weight: 500;
-    text-decoration: none;
-    color: #aaca4e;
-    transition: text-decoration 0.2s ease-out;
-}
-strong:hover {
-    text-decoration: underline;
-    transition: text-decoration 0.2s ease-out;
-}
 table th,
 table td {
     font-size: 15px;

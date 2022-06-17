@@ -6,20 +6,11 @@ import { useTheme } from 'next-themes'
 
 import logo from '../public/logo.svg'
 import { ActiveLink } from './index'
+import { IHeader } from '../types'
 
-const navigation = [
-    { title: 'Документация', path: '/docs/introduction' },
-    { title: 'О нас', path: '/about/about-us' },
-    { title: 'Поддержать', path: '/support/support-us' }
-]
-
-interface Props {
-    onToggle: () => void
-}
-
-const Header: FC<Props> = ({ onToggle }) => {
-    const { theme, setTheme } = useTheme()
+const Header: FC<IHeader> = ({ navigation, onToggle }) => {
     const router = useRouter()
+    const { theme, setTheme } = useTheme()
 
     const isFixed = router.asPath.includes('/docs')
 
@@ -65,7 +56,7 @@ const Header: FC<Props> = ({ onToggle }) => {
                                     {navigation.map((nav) => {
                                         return (
                                             <li key={nav.title} className='flex items-center text-slate-700 dark:text-slate-100'>
-                                                <ActiveLink activeClassName='text-primary' href={nav.path}>
+                                                <ActiveLink activeClassName='text-primary dark:text-sky-400' href={nav.path}>
                                                     <a className='flex-auto text-sm font-semibold hover:text-primary dark:hover:text-sky-400'>{nav.title}</a>
                                                 </ActiveLink>
                                             </li>
@@ -84,10 +75,10 @@ const Header: FC<Props> = ({ onToggle }) => {
                                             {theme === 'dark'
                                                 ? <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 fill-slate-700 dark:fill-slate-500 hover:fill-primary dark:hover:fill-sky-400" viewBox="0 0 20 20" fill="currentColor">
                                                     <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-                                                </svg>
+                                                  </svg>
                                                 : <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 fill-slate-400 dark:fill-slate-100 hover:fill-primary dark:hover:fill-sky-400" viewBox="0 0 20 20" fill="currentColor">
                                                     <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
-                                                </svg>
+                                                  </svg>
                                             }
                                         </button>
                                     </li>
@@ -110,10 +101,12 @@ const Header: FC<Props> = ({ onToggle }) => {
                                     </li>
                                     <li className='pl-3'>
                                         <span className='hidden'>rss</span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 fill-slate-400 dark:fill-slate-500 hover:fill-primary dark:hover:fill-sky-400" viewBox="0 0 20 20" fill="currentColor">
-                                            <path d="M5 3a1 1 0 000 2c5.523 0 10 4.477 10 10a1 1 0 102 0C17 8.373 11.627 3 5 3z" />
-                                            <path d="M4 9a1 1 0 011-1 7 7 0 017 7 1 1 0 11-2 0 5 5 0 00-5-5 1 1 0 01-1-1zM3 15a2 2 0 114 0 2 2 0 01-4 0z" />
-                                        </svg>
+                                        <a href='/rss.xml' target='_blank'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 fill-slate-400 dark:fill-slate-500 hover:fill-primary dark:hover:fill-sky-400" viewBox="0 0 20 20" fill="currentColor">
+                                                <path d="M5 3a1 1 0 000 2c5.523 0 10 4.477 10 10a1 1 0 102 0C17 8.373 11.627 3 5 3z" />
+                                                <path d="M4 9a1 1 0 011-1 7 7 0 017 7 1 1 0 11-2 0 5 5 0 00-5-5 1 1 0 01-1-1zM3 15a2 2 0 114 0 2 2 0 01-4 0z" />
+                                            </svg>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>

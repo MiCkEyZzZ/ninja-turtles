@@ -7,12 +7,9 @@ import { MDXProvider } from '@mdx-js/react'
 // @ts-ignore
 import MDX from '@mdx-js/runtime'
 import Layout from '../../layouts/layout'
+import { IPrivacy } from '../../types'
 
-type PrivacyProps = {
-    mdx: string
-}
-
-const Privacy: FC<PrivacyProps> = ({ meta, content }: any) => {
+const Privacy: FC<IPrivacy> = ({ meta, content }) => {
     return (
         <Layout meta={meta}>
             <div className='overflow-hidden md:mb-0 pt-16 min-h-[65rem]'>

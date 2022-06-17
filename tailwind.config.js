@@ -6,10 +6,12 @@ module.exports = {
     darkMode: 'class',
     enabled: true,
     options: {
-        safelist: ['dark'], //specific classes
+        safelist: ['dark'],
     },
     theme: {
-        typography: (theme) => ({}),
+        typography: (theme) => ({
+            dark: {}
+        }),
         extend: {
             height: {
                 500: '515px'

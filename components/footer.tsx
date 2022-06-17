@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+
 import { ActiveLink } from './index'
 
 const Footer = () => {
@@ -118,12 +119,12 @@ const Footer = () => {
                                 Дополнительно
                             </li>
                             <li>
-                                <ActiveLink activeClassName='text-primary' href='/privacy/privacy-introduction'>
+                                <ActiveLink activeClassName='text-primary dark:text-sky-400' href='/privacy/privacy-introduction'>
                                     <a className='text-fill-slate-300 hover:text-primary dark:hover:text-sky-400'>Конфиденциальность</a>
                                 </ActiveLink>
                             </li>
                             <li>
-                                <ActiveLink activeClassName='text-primary' href='/terms/terms-introduction'>
+                                <ActiveLink activeClassName='text-primary dark:text-sky-400' href='/terms/terms-introduction'>
                                     <a className='text-fill-slate-300 hover:text-primary dark:hover:text-sky-400'>Условия</a>
                                 </ActiveLink>
                             </li>

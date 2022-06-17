@@ -7,6 +7,7 @@ import matter from 'gray-matter'
 import markdownToHtml from '../../lib/markdown'
 import Layout from '../../layouts/layout'
 import { Aside } from '../../components'
+import { IPost } from '../../types'
 
 const items = [
     { id: 1,name: 'Введение', path: '/docs/introduction' },
@@ -16,12 +17,7 @@ const items = [
     { id: 5,name: 'Библиотеки', path: '/docs/libraries' }
 ]
 
-type PostProps = {
-    meta: string
-    cont: string
-}
-
-const Post: FC<PostProps> = ({ meta, cont }) => {
+const Post: FC<IPost> = ({ meta, cont }) => {
     return (
         <Layout meta={meta}>
             <div className='overflow-hidden md:mb-0 pt-32 min-h-[65rem]'>

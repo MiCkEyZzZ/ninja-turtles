@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
@@ -8,6 +8,7 @@ import { MDXProvider } from '@mdx-js/react'
 import MDX from '@mdx-js/runtime'
 
 import Layout from '../../layouts/layout'
+import { ILanguages } from '../../types'
 
 const components = {
     h1: (props: any) => <h1 style={{ color: "red" }}>{props.children}</h1>,
@@ -17,7 +18,7 @@ const components = {
     p: (props: any) => <p style={{ color: "green" }}>{props.children}</p>
 }
 
-const Languages = ({ meta, content }: any) => {
+const Languages: FC<ILanguages> = ({ meta, content }) => {
     return (
         <Layout meta={meta}>
             <div className='overflow-hidden md:mb-0 pt-16 min-h-[65rem]'>

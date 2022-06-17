@@ -5,18 +5,26 @@ import { useTheme } from 'next-themes'
 import { Header, Footer } from '../components'
 import Popover from '../components/popover'
 
+const items = [
+    { title: 'Документация', path: '/docs/introduction' },
+    { title: 'О нас', path: '/about/about-us' },
+    { title: 'Поддержать', path: '/support/support-us' }
+]
+
 interface Props {
     children: React.ReactNode
     meta: any
 }
 
-const Layout: FC<Props> = ({ children, meta: pageMeta }) => {
+const Layout: FC<Props> = ({ children, ...customMeta }) => {
     const { theme, setTheme } = useTheme()
     const [menu, setMenu] = useState(false)
     const meta = {
-        title: '',
+        title: 'The Ninja Turtles API - Главная страница',
         description: '',
-        cardImage: ''
+        cardImage: '',
+        type: 'website',
+        ...customMeta
     }
 
     const onToggle = () => {
@@ -49,14 +57,11 @@ const Layout: FC<Props> = ({ children, meta: pageMeta }) => {
                 <meta name="twitter:title" content={meta.title} />
                 <meta name="twitter:description" content={meta.description} />
                 <meta name="twitter:image" content={meta.cardImage} />
-                <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin='true' />
-                <link rel="preconnect" href="https://fonts.gstatic.com" />
-                <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
                 <meta content="#ffffff" name="theme-color" />
                 <meta content="#ffffff" name="msapplication-TileColor" />
                 <title>{meta.title}</title>
             </Head>
-            <Header onToggle={onToggle} />
+            <Header navigation={items} onToggle={onToggle} />
             <main>{children}</main>
             <Footer />
             {menu && <Popover theme={theme} setTheme={setTheme} setMenu={setMenu} />}
