@@ -7,6 +7,7 @@ import { MDXProvider } from '@mdx-js/react'
 // @ts-ignore
 import MDX from '@mdx-js/runtime'
 import Layout from '../../layouts/layout'
+import { IAbout } from '../../types'
 
 const components = {
     h1: (props: any) => <h1 className='prose lg:prose-xl'>{props.children}</h1>,
@@ -16,12 +17,7 @@ const components = {
     p: (props: any) => <p className='prose prose-p-{3}'>{props.children}</p>,
 }
 
-interface Props {
-    meta: string
-    content: string
-}
-
-const About: FC<Props> = ({ meta, content }) => {
+const About: FC<IAbout> = ({ meta, content }) => {
     return (
         <Layout meta={meta}>
             <div className='overflow-hidden md:mb-0 pt-16 min-h-[65rem]'>

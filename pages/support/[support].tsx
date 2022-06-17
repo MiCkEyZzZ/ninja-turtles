@@ -8,18 +8,14 @@ import { MDXProvider } from '@mdx-js/react'
 import MDX from '@mdx-js/runtime'
 
 import Layout from '../../layouts/layout'
-
-type SupportProps = {
-    meta: string
-    content: string
-}
+import { ISupport } from '../../types'
 
 const components = {
     h1: (props: any) => <h1 style={{ color: "red" }}>{props.children}</h1>,
     p: (props: any) => <p style={{ color: "green" }}>{props.children}</p>,
 }
 
-const Support: FC<SupportProps> = ({ meta, content }) => {
+const Support: FC<ISupport> = ({ meta, content }) => {
     return (
         <Layout meta={meta}>
             <div className='overflow-hidden md:mb-0 pt-16 min-h-[65rem]'>

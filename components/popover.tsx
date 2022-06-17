@@ -1,13 +1,9 @@
 import React, { FC } from 'react'
 import Link from 'next/link'
 
-interface Props {
-    theme: string | undefined
-    setTheme: Function
-    setMenu: Function
-}
+import { IPopover } from '../types'
 
-const Popover: FC<Props> = ({ theme, setTheme, setMenu }) => {
+const Popover: FC<IPopover> = ({ theme, setTheme, setMenu }) => {
     return (
         <>
             <div id="headlessui-portal-root">

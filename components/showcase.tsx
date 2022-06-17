@@ -1,24 +1,10 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-import leonardo from '../public/1.jpg'
-import raphael from '../public/4.jpg'
-import donatello from '../public/2.jpg'
-import microcandela from '../public/3.jpg'
-import splinter from '../public/6.jpg'
-import shredder from '../public/5.jpg'
+import { IShowcase } from '../types'
 
-const characters = [
-    { id: 1, title: 'Леонардо', image: leonardo, status: 'Живой', species: 'Черепаха мутант', lastAppearance: 'Канализация Нью-Йорка', firstAppearance: 'Приключения TMNT Бесплатный мини-Комикс' },
-    { id: 2, title: 'Шредер', image: shredder, status: 'Живой', species: 'Человек', lastAppearance: 'Нью-Йорк', firstAppearance: 'Приключения TMNT Бесплатный мини-Комикс' },
-    { id: 3, title: 'Донателло', image: donatello, status: 'Живой', species: 'Черепаха мутант', lastAppearance: 'Канализация Нью-Йорка', firstAppearance: 'Приключения TMNT Бесплатный мини-Комикс' },
-    { id: 4, title: 'Микеланджело', image: microcandela, status: 'Живой', species: 'Черепаха мутант', lastAppearance: 'Канализация Нью-Йорка', firstAppearance: 'Приключения TMNT Бесплатный мини-Комикс' },
-    { id: 5, title: 'Сплинтер', image: splinter, status: 'Живой', species: 'Крыса мутант', lastAppearance: 'Канализация Нью-Йорка', firstAppearance: 'Приключения TMNT Бесплатный мини-Комикс' },
-    { id: 6, title: 'Рафаэль', image: raphael, status: 'Живой', species: 'Черепаха мутант', lastAppearance: 'Канализация Нью-Йорка', firstAppearance: 'Приключения TMNT Бесплатный мини-Комикс' },
-]
-
-const Showcase = () => {
+const Showcase: FC<IShowcase> = ({ characters }) => {
     return (
         <section className="max-w-screen-2xl mx-auto px-3 sm:px-6 md:px-8">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 sm:max-w-lg sm:mx-auto md:grid-col-2 lg:max-w-fit lg:gap-6 lg:grid-cols-3">
