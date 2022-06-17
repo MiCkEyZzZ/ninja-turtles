@@ -1,0 +1,232 @@
+---
+title: Персонажи
+seoTitle: Персонажи
+description: Описание всех доступных методов
+---
+
+## Персонаж
+Всего `204` персонажа, отсортированных по `id`.
+
+### Схема персонажа
+
+| Ключ           | Тип    | Описание                                            |
+|----------------|--------|-----------------------------------------------------|
+| id             | Int    | Идентификатор персонажа                             |,
+| name           | String | Имя персонажа                                       |,
+| status         | String | Статус персонажа                                    |,
+| type           | String | Тип или подвид персонажа                            |,
+| gender         | String | Пол персонажа                                       |,
+| occupation     | String | Род деятельности персонажа                          |,
+| location       | Object | Имя ссылки на адрес местоположения персонажа        |,
+| episodes       | Array  | Список эпизодов, в которых появился этот персонаж   |,
+| weapons        | Array  | Список оружия, которым обладает персонаж            |,
+| affiliation    | String | Принадлежность персонажа к организациям             |,
+| bandanna_color | String | Цвет повязки персонажа(необязательное поле)         |,
+| image_cover    | String | Ссылка на изображение персонажа                     |,
+| url            | String | Ссылка на собственный конечный URL-адреса персонажа |,
+| createdAt      | String | Время, когда персонаж был создан в базе данных      |
+
+### Получить всех персонажей
+Вы можете получить доступ к списку персонажей путём добавления  `/character` в URL-адрес.
+```json
+{
+  "info": {
+    "count": 280,
+    "pages": 10,
+    "next": "https://ninjaturtlesapi.com/api/character/?page=2",
+    "prev": null
+  },
+  "data": [
+    {
+      "id": 1,
+      "name": "Leonardo",
+      "status": "Alive",
+      "species": "Turtle",
+      "type": "unknown",
+      "gender": "Male",
+      "occupation": "Ninja, Turtle Leader",
+      "location": {
+        "name": "Sewers of New York City",
+        "url": "https://ninjaturtlesapi.com/location/2"
+      },
+      "episodes": [
+        "https://ninjaturtlesapi.com/api/episode/1"
+      ],
+      "weapons": [
+        "Ninjato blades",
+        "Ninja Stars",
+        "Sword",
+        "Twin Katanas"
+      ],
+      "affiliation": "TMNT",
+      "bandanna_color": "Blue",
+      "image_cover": "character-1.png",
+      "url": "https://ninjaturtlesapi.com/api/character/1",
+      "createdAt": "2021-04-25T12:42:04.162Z"
+    }
+  ]
+}
+```
+
+### Получить одного персонажа
+Для получения одного персонажа необходимо произвести добавление в URL-адрес, `id` персонажа, в качестве параметра: `/character/1`
+
+```json
+{
+  "id": 1,
+  "name": "Leonardo",
+  "status": "Alive",
+  "species": "Turtle",
+  "type": "unknown",
+  "gender": "Male",
+  "occupation": "Ninja, Turtle Leader",
+  "location": {
+    "name": "Sewers of New York City",
+    "url": "https://ninjaturtlesapi.com/location/2"
+  },
+  "episodes": [
+    "https://ninjaturtlesapi.com/api/episode/1"
+  ],
+  "weapons": [
+    "Ninjato blades",
+    "Ninja Stars",
+    "Sword",
+    "Twin Katanas"
+  ],
+  "affiliation": "TMNT",
+  "bandanna_color": "Blue",
+  "image_cover": "character-1.png",
+  "url": "https://ninjaturtlesapi.com/api/character/1",
+  "createdAt": "2021-04-25T12:42:04.162Z"
+}
+```
+
+### Получить несколько персонажей
+Для получения нескольких персонажей вы можете добавить массив `ids` в качестве параметра в URL-адрес:  `/character/[1,2,3]`  или перечислить числа через запятую, которые будут обозначать `id` персонажа  `/character/1,2,3`
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Leonardo",
+    "status": "Alive",
+    "species": "Turtle",
+    "type": "unknown",
+    "gender": "Male",
+    "occupation": "Ninja, Turtle Leader",
+    "location": {
+      "name": "Sewers of New York City",
+      "url": "https://ninjaturtlesapi.com/location/2"
+    },
+    "episodes": [
+      "https://ninjaturtlesapi.com/api/episode/1"
+    ],
+    "weapons": [
+      "Ninjato blades",
+      "Ninja Stars",
+      "Sword",
+      "Twin Katanas"
+    ],
+    "affiliation": "TMNT",
+    "bandanna_color": "Blue",
+    "image_cover": "character-1.png",
+    "url": "https://ninjaturtlesapi.com/api/character/1",
+    "createdAt": "2021-04-25T12:42:04.162Z"
+  },
+  {
+    "id": 1,
+    "name": "Bebop",
+    "status": "Alive",
+    "species": "Mutant warthog",
+    "type": "unknown",
+    "gender": "Male",
+    "occupation": "Shredder's henchman",
+    "location": {
+      "name": "Acme Research",
+      "url": "https://ninjaturtlesapi.com/location/5"
+    },
+    "episodes": [
+      "https://ninjaturtlesapi.com/api/episode/15"
+    ],
+    "weapons": [
+      "Laser",
+      "Crowbar",
+      "Baseball bat",
+      "Club",
+      "Chain",
+      "throwing star",
+      "knifes",
+      "mace",
+      "sai",
+      "spear",
+      "Anxietron Ray"
+    ],
+    "affiliation": "Foot Clan",
+    "bandanna_color": "Blue",
+    "image_cover": "character-10.png",
+    "url": "https://ninjaturtlesapi.com/api/character/10",
+    "createdAt": "2021-04-25T12:42:04.162Z"
+  }
+]
+```
+### Фильтрация персонажей
+Вы также можете включить фильтры в URL-адрес, добавив дополнительные параметры запроса. Чтобы начать фильтрацию, добавьте знак  `?`, за которым следует запрос `<query>=<value>`.
+Если вы хотите связать несколько запросов в одном вызове, используйте знак  `&`, за которым следует запрос.
+
+Например, если вы хотите проверить, сколько существует живых персонажей просто добавьте `?name=character&status=alive` в URL-адрес.
+
+**Доступные параметры:**
+
+* `name`: фильтрация по заданному имени;
+* `status`: фильтрация по заданному статусу (жив, мертв или неизвестно);
+* `species`: фильтрация по заданному виду;
+* `type`: фильтрация по заданному типу;
+* `gender`: фильтрация по заданному полу (женский, мужской, бесполый или неизвестно);
+
+```json
+{
+  "info": {
+    "count": 20,
+    "pages": 2,
+    "next": "https://ninjaturtlesapi.com/api/character/?page=2&name=character&status=alive",
+    "prev": null
+  },
+  "data": [
+    {
+      "id": 1,
+      "name": "Bebop",
+      "status": "Alive",
+      "species": "Mutant warthog",
+      "type": "unknown",
+      "gender": "Male",
+      "occupation": "Shredder's henchman",
+      "location": {
+        "name": "Acme Research",
+        "url": "https://ninjaturtlesapi.com/location/5"
+      },
+      "episodes": [
+        "https://ninjaturtlesapi.com/api/episode/15"
+      ],
+      "weapons": [
+        "Laser",
+        "Crowbar",
+        "Baseball bat",
+        "Club",
+        "Chain",
+        "throwing star",
+        "knifes",
+        "mace",
+        "sai",
+        "spear",
+        "Anxietron Ray"
+      ],
+      "affiliation": "Foot Clan",
+      "bandanna_color": "Blue",
+      "image_cover": "character-10.png",
+      "url": "https://ninjaturtlesapi.com/api/character/10",
+      "createdAt": "2021-04-25T12:42:04.162Z"
+    }
+  ]
+}
+```
+
