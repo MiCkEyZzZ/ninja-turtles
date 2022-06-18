@@ -6,9 +6,9 @@ import '../styles/globals.css'
 
 function TurtleApp({ Component, pageProps }: AppProps) {
   return (
-      <ThemeProvider attribute="class">
-        <Component {...pageProps} />
-      </ThemeProvider>
+    <ThemeProvider attribute="class">
+      <Component {...pageProps} />
+    </ThemeProvider>
   )
 }
 

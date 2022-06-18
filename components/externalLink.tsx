@@ -1,11 +1,7 @@
 import React from 'react'
 
 const ExternalLink = () => {
-    return (
-        <div>
-
-        </div>
-    )
+  return <div></div>
 }
 
-export default ExternalLink;
+export default ExternalLink

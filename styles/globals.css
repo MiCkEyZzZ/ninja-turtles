@@ -94,7 +94,7 @@ a {
 }
 
 .token.property {
-  @apply text-gray-500; /* changed */
+  @apply text-gray-500 dark:text-gray-200; /* changed */
 }
 
 .token.operator {
@@ -106,7 +106,7 @@ a {
 .token.char,
 .token.builtin,
 .token.inserted {
-  @apply text-gray-500; /* changed */
+  @apply text-gray-500 dark:text-gray-200; /* changed */
 }
 
 .token.string {
@@ -142,11 +142,15 @@ a {
 
 code[class*='language-'],
 pre[class*='language-'] {
-  @apply text-gray-800 dark:text-gray-50;
+  @apply text-gray-800 dark:text-gray-50 dark:bg-slate-800 dark:border-slate-800 my-5;
 }
 
 p > code {
-  @apply text-sky-600 bg-slate-100 px-2 py-1 rounded text-sm;
+  @apply text-sky-600 bg-slate-100 px-1 rounded text-sm;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-size: .9rem;
+  line-height: 1.5;
 }
 
 pre::-webkit-scrollbar {
@@ -200,6 +204,12 @@ table {
   max-width: fit-content;
   overflow-x: auto;
   white-space: nowrap;
+  @apply my-5 w-screen text-gray-100;
+}
+
+table > thead,
+table > tbody {
+  @apply w-screen;
 }
 
 .prose .callout > p {
