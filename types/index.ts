@@ -1,4 +1,5 @@
 import { UrlObject } from 'url'
+import React from 'react'
 
 export interface IPost {
   meta: string
@@ -35,6 +36,12 @@ export interface IHeader {
   onToggle: () => void
 }
 
+export interface IFooter {
+  navigation: Navigation[]
+  moreLinks: Navigation[]
+  quickLinks: Navigation[]
+}
+
 export interface ActiveLinkProps {
   activeClassName?: string
   href: string | UrlObject
@@ -56,6 +63,7 @@ export interface IShowcase {
 }
 
 type Navigation = {
+  id: number
   title: string
   path: string
 }
@@ -74,4 +82,9 @@ type Character = {
   species: string
   lastAppearance: string
   firstAppearance: string
+}
+
+export interface ILayout {
+  children: React.ReactNode
+  meta: any
 }

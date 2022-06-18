@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 import ActiveLink from './activeLink'
 import { IAside } from '../types'
 
-const Aside: FC<IAside> = ({ links }) => {
+const Sidebar: FC<IAside> = ({ links }) => {
   return (
     <aside className="fixed top-16 right-0 w-72 h-screen pt-20 px-8 bg-gray-0 dark:bg-gray-750 border-gray-150 dark:border-gray-800 border z-10">
       <ul className="flex flex-col w-52 mr-0 py-0">
@@ -23,4 +23,4 @@ const Aside: FC<IAside> = ({ links }) => {
   )
 }
 
-export default Aside
+export default Sidebar
