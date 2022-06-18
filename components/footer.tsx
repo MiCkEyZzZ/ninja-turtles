@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Link from 'next/link'
 
 import { ActiveLink } from './index'
+import { IFooter } from '../types'
+import { OutLink } from '../public/assets'
 
-const Footer = () => {
+const Footer: FC<IFooter> = ({ navigation, moreLinks, quickLinks }) => {
   const year = new Date()
 
   return (
@@ -22,106 +24,49 @@ const Footer = () => {
           <div className="flex-none w-full md:w-36 space-y-10 mx-auto md:mx-0 lg:md:mx-auto sm:space-y-8 lg:flex lg:space-y-0 lg:h-60 mr-0 md:mr-1">
             <ul className="mt-1 md:mt-3 space-y-1 text-slate-700 dark:text-slate-500">
               <li className="font-semibold text-slate-900 dark:text-slate-100">Документация</li>
-              <li>
-                <Link href="/docs/introduction">
-                  <a className="text-fill-slate-300 hover:text-primary dark:hover:text-sky-400">Введение</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/docs/characters">
-                  <a className="text-fill-slate-300 hover:text-primary dark:hover:text-sky-400">Персонажи</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/docs/locations">
-                  <a className="text-fill-slate-300 hover:text-primary dark:hover:text-sky-400">Местоположение</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/docs/episodes">
-                  <a className="text-fill-slate-300 hover:text-primary dark:hover:text-sky-400">Серии</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/docs/libraries">
-                  <a className="text-fill-slate-300 hover:text-primary dark:hover:text-sky-400">Библиотеки</a>
-                </Link>
-              </li>
+              {quickLinks.map((item) => {
+                return (
+                  <li key={item.id}>
+                    <Link href={item.path}>
+                      <a className="text-fill-slate-300 hover:text-primary dark:hover:text-sky-400">{item.title}</a>
+                    </Link>
+                  </li>
+                )
+              })}
             </ul>
           </div>
           <div className="flex-none w-full md:w-36 space-y-10 mx-auto sm:space-y-8 lg:flex lg:space-y-0 lg:h-60 mr-0 md:mr-1">
             <ul className="mt-1 md:mt-3 space-y-1 text-slate-700 fill-slate-700 dark:text-slate-500">
               <li className="font-semibold text-slate-900 dark:text-slate-100">Каналы</li>
-              <li className="flex flex-row items-center hover:text-primary dark:hover:text-sky-400 hover:fill-primary dark:hover:fill-sky-400">
-                <Link href="/">
-                  <a>Вконтакте</a>
-                </Link>
-                <span className="ml-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-                  </svg>
-                </span>
-              </li>
-              <li className="flex flex-row items-center hover:text-primary dark:hover:text-sky-400 hover:fill-primary dark:hover:fill-sky-400">
-                <Link href="/">
-                  <a>Яндекс Дзен</a>
-                </Link>
-                <span className="ml-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-                  </svg>
-                </span>
-              </li>
-              <li className="flex flex-row items-center hover:text-primary dark:hover:text-sky-400 hover:fill-primary dark:hover:fill-sky-400">
-                <Link href="/">
-                  <a>Telegram</a>
-                </Link>
-                <span className="ml-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-                  </svg>
-                </span>
-              </li>
-              <li className="flex flex-row items-center hover:text-primary dark:hover:text-sky-400 hover:fill-primary dark:hover:fill-sky-400">
-                <Link href="/">
-                  <a>Хабр</a>
-                </Link>
-                <span className="ml-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-                  </svg>
-                </span>
-              </li>
-              <li className="flex flex-row items-center hover:text-primary dark:hover:text-sky-400 hover:fill-primary dark:hover:fill-sky-400">
-                <Link href="/">
-                  <a>Stack Overflow</a>
-                </Link>
-                <span className="ml-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-                  </svg>
-                </span>
-              </li>
+              {navigation.map((item) => {
+                return (
+                  <li
+                    key={item.id}
+                    className="flex flex-row items-center hover:text-primary dark:hover:text-sky-400 hover:fill-primary dark:hover:fill-sky-400"
+                  >
+                    <Link href={item.path}>
+                      <a>{item.title}</a>
+                    </Link>
+                    <span className="ml-2">
+                      <OutLink className="h-4 w-4" />
+                    </span>
+                  </li>
+                )
+              })}
             </ul>
           </div>
           <div className="flex-none w-full md:w-36 space-y-10 mx-auto sm:space-y-8 lg:flex lg:space-y-0 lg:h-60 mr-0 md:mr-0">
             <ul className="mt-1 md:mt-3 space-y-1 text-slate-700 dark:text-slate-500">
               <li className="font-semibold text-slate-900 dark:text-slate-100">Дополнительно</li>
-              <li>
-                <ActiveLink activeClassName="text-primary dark:text-sky-400" href="/privacy/privacy-introduction">
-                  <a className="text-fill-slate-300 hover:text-primary dark:hover:text-sky-400">Конфиденциальность</a>
-                </ActiveLink>
-              </li>
-              <li>
-                <ActiveLink activeClassName="text-primary dark:text-sky-400" href="/terms/terms-introduction">
-                  <a className="text-fill-slate-300 hover:text-primary dark:hover:text-sky-400">Условия</a>
-                </ActiveLink>
-              </li>
+              {moreLinks.map((item) => {
+                return (
+                  <li key={item.id}>
+                    <ActiveLink activeClassName="text-primary dark:text-sky-400" href={item.path}>
+                      <a className="text-fill-slate-300 hover:text-primary dark:hover:text-sky-400">{item.title}</a>
+                    </ActiveLink>
+                  </li>
+                )
+              })}
             </ul>
           </div>
         </div>

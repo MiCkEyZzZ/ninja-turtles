@@ -2,12 +2,12 @@ import type { NextPage } from 'next'
 
 import Layout from '../layouts/layout'
 import { Hero, Showcase, Notify } from '../components'
-import leonardo from '../public/1.jpg'
-import shredder from '../public/5.jpg'
-import donatello from '../public/2.jpg'
-import microcandela from '../public/3.jpg'
-import splinter from '../public/6.jpg'
-import raphael from '../public/4.jpg'
+import leonardo from '../public/assets/1.jpg'
+import shredder from '../public/assets/5.jpg'
+import donatello from '../public/assets/2.jpg'
+import microcandela from '../public/assets/3.jpg'
+import splinter from '../public/assets/6.jpg'
+import raphael from '../public/assets/4.jpg'
 
 const items = [
   {

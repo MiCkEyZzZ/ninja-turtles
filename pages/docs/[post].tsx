@@ -6,16 +6,9 @@ import matter from 'gray-matter'
 
 import markdownToHtml from '../../lib/markdown'
 import Layout from '../../layouts/layout'
-import { Aside } from '../../components'
+import { Sidebar } from '../../components'
 import { IPost } from '../../types'
-
-const items = [
-  { id: 1, name: 'Введение', path: '/docs/introduction' },
-  { id: 2, name: 'Персонажи', path: '/docs/characters' },
-  { id: 3, name: 'Местоположение', path: '/docs/locations' },
-  { id: 4, name: 'Серии', path: '/docs/episodes' },
-  { id: 5, name: 'Библиотеки', path: '/docs/libraries' },
-]
+import siteConfig from '../../config/siteConfig'
 
 const Post: FC<IPost> = ({ meta, cont }) => {
   return (
@@ -31,7 +24,7 @@ const Post: FC<IPost> = ({ meta, cont }) => {
                 />
               </div>
             </div>
-            <Aside links={items} />
+            <Sidebar links={siteConfig.sitebar} />
           </div>
         </section>
       </div>
