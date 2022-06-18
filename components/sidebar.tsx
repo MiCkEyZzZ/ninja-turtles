@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import ActiveLink from './activeLink'
+import ActiveLink from './ui/activeLink'
 import { IAside } from '../types'
 
 const Sidebar: FC<IAside> = ({ links }) => {

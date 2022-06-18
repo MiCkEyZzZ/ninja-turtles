@@ -1,5 +1,5 @@
-import { UrlObject } from 'url'
 import React from 'react'
+import { UrlObject } from 'url'
 
 export interface IPost {
   meta: string
@@ -85,6 +85,12 @@ type Character = {
 }
 
 export interface ILayout {
-  children: React.ReactNode
+  children: any
   meta: any
+}
+
+export interface IExternalLink {
+  href: string
+  children: React.ReactNode
+  className?: string
 }

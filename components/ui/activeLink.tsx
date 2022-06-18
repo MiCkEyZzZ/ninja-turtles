@@ -1,7 +1,7 @@
 import React, { Children, FC, ReactElement, cloneElement } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { ActiveLinkProps } from '../types'
+import { ActiveLinkProps } from '../../types'
 
 const ActiveLink: FC<ActiveLinkProps> = ({ children, ...props }) => {
   const router = useRouter()

@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
 
-import { ActiveLink } from './index'
+import { ActiveLink, ExternalLink } from './index'
 import { IHeader } from '../types'
 import {
   DarkIcon,
@@ -96,15 +96,15 @@ const Header: FC<IHeader> = ({ navigation, onToggle }) => {
                 </li>
                 <li className="px-3 flex-row items-center">
                   <span className="hidden">github link</span>
-                  <a href="https://github.com/MiCkEyZzZ/ninja-turtles-api" target="_blank" rel="noreferrer">
+                  <ExternalLink href="https://github.com/MiCkEyZzZ/ninja-turtles-api">
                     <GithubIcon className="h-5 w-5 fill-slate-400 dark:fill-slate-500 hover:fill-primary dark:hover:fill-sky-400" />
-                  </a>
+                  </ExternalLink>
                 </li>
                 <li className="pl-3">
                   <span className="hidden">rss</span>
-                  <a href="/rss.xml" target="_blank">
+                  <ExternalLink href="/rss.xml">
                     <RssIcon className="h-5 w-5 fill-slate-400 dark:fill-slate-500 hover:fill-primary dark:hover:fill-sky-400" />
-                  </a>
+                  </ExternalLink>
                 </li>
               </ul>
             </div>

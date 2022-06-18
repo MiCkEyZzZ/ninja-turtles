@@ -1,14 +1,9 @@
+const { spacing, fontFamily } = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class',
-  enabled: true,
-  options: {
-    safelist: ['dark'],
-  },
   theme: {
-    typography: (theme) => ({
-      dark: {},
-    }),
     extend: {
       height: {
         500: '515px',
@@ -67,6 +62,15 @@ module.exports = {
           900: 'rgb(28 25 23)',
         },
       },
+      fontFamily: ['', ...fontFamily.sans],
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {},
+        },
+        dark: {
+          css: {},
+        },
+      }),
     },
   },
   variants: {
