@@ -59,7 +59,7 @@ export interface IPopover {
 }
 
 export interface IShowcase {
-  characters: Character[]
+  characters: CharacterType[]
 }
 
 type Navigation = {
@@ -68,13 +68,17 @@ type Navigation = {
   path: string
 }
 
+export interface Character {
+  character: CharacterType
+}
+
 type Links = {
   id: number
   name: string
   path: string
 }
 
-type Character = {
+export type CharacterType = {
   id: number
   title: string
   image: any

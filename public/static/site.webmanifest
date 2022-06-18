@@ -1,0 +1,12 @@
+{
+    "name": "The Ninja Turtles API",
+    "short_name": "The Ninja Turtle API",
+    "description": "The",
+    "icons": [],
+    "background_color": "#ffffff",
+    "theme_color": "#aaca4eff",
+    "display": "standalone",
+    "lang": "RU-ru",
+    "orientation": "portrait-primary",
+    "start_url": "."
+}
