@@ -55,7 +55,7 @@ const Layout: FC<ILayout> = ({ children, ...customMeta }) => {
       </Head>
       <Header navigation={siteConfig.navigation} onToggle={onToggle} />
       <main>{children}</main>
-      <Footer quickLinks={siteConfig.quickLinks} navigation={siteConfig.footer} moreLinks={siteConfig.moreLinks} />
+      <Footer quickLinks={siteConfig.quickLinks} footerLinks={siteConfig.footer} moreLinks={siteConfig.moreLinks} />
       {menu && <Popover theme={theme} setTheme={setTheme} setMenu={setMenu} />}
     </>
   )

@@ -5,7 +5,7 @@ import { ActiveLink } from './index'
 import { IFooter } from '../types'
 import { OutLink } from '../public/assets'
 
-const Footer: FC<IFooter> = ({ navigation, moreLinks, quickLinks }) => {
+const Footer: FC<IFooter> = ({ footerLinks, moreLinks, quickLinks }) => {
   const year = new Date()
 
   return (
@@ -38,7 +38,7 @@ const Footer: FC<IFooter> = ({ navigation, moreLinks, quickLinks }) => {
           <div className="flex-none w-full md:w-36 space-y-10 mx-auto sm:space-y-8 lg:flex lg:space-y-0 lg:h-60 mr-0 md:mr-1">
             <ul className="mt-1 md:mt-3 space-y-1 text-slate-700 fill-slate-700 dark:text-slate-500">
               <li className="font-semibold text-slate-900 dark:text-slate-100">Каналы</li>
-              {navigation.map((item) => {
+              {footerLinks.map((item) => {
                 return (
                   <li
                     key={item.id}

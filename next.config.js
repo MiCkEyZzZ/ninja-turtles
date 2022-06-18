@@ -3,7 +3,11 @@ const nextConfig = {
 }
 
 module.exports = {
-  webpack(config, options) {
+  webpack(config, { isServer }) {
+    if (!isServer) {
+      config.resolve.fallback.fs = false
+    }
+
     config.module.rules.push({
       loader: '@svgr/webpack',
       issuer: /\.[jt]sx?$/,

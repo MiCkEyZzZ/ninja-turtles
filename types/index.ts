@@ -37,7 +37,7 @@ export interface IHeader {
 }
 
 export interface IFooter {
-  navigation: Navigation[]
+  footerLinks: Navigation[]
   moreLinks: Navigation[]
   quickLinks: Navigation[]
 }
