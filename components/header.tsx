@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
@@ -17,10 +17,13 @@ import {
 } from '../public/assets'
 
 const Header: FC<IHeader> = ({ navigation, onToggle }) => {
+  const [mounted, setMounted] = useState(false)
+  const { resolvedTheme, setTheme } = useTheme()
   const router = useRouter()
-  const { theme, setTheme } = useTheme()
 
   const isFixed = router.asPath.includes('/docs')
+
+  useEffect(() => setMounted(true), [])
 
   return (
     <header
@@ -77,10 +80,10 @@ const Header: FC<IHeader> = ({ navigation, onToggle }) => {
                 <li className="px-3 flex items-center">
                   <button
                     className="border-0 bg-transparent"
-                    onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                    onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
                   >
                     <span className="hidden">dark/light</span>
-                    {theme === 'dark' ? (
+                    {mounted && resolvedTheme === 'dark' ? (
                       <DarkIcon className="h-5 w-5 fill-slate-700 dark:fill-slate-500 hover:fill-primary dark:hover:fill-sky-400" />
                     ) : (
                       <LightIcon className="h-5 w-5 fill-slate-400 dark:fill-slate-100 hover:fill-primary dark:hover:fill-sky-400" />
