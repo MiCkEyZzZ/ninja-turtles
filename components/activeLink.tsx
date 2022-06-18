@@ -4,22 +4,18 @@ import { useRouter } from 'next/router'
 import { ActiveLinkProps } from '../types'
 
 const ActiveLink: FC<ActiveLinkProps> = ({ children, ...props }) => {
-    const router = useRouter()
+  const router = useRouter()
 
-    const child = Children.only(children) as ReactElement
-    let className = child.props ? child.props.className : ''
+  const child = Children.only(children) as ReactElement
+  let className = child.props ? child.props.className : ''
 
-    if (router.asPath === props.href && props.activeClassName) {
-        className = `${className} ${props.activeClassName}`
-    }
+  if (router.asPath === props.href && props.activeClassName) {
+    className = `${className} ${props.activeClassName}`
+  }
 
-    delete props.activeClassName
+  delete props.activeClassName
 
-    return (
-        <Link
-            href={props.href}
-        >{cloneElement(child, {className})}</Link>
-    )
+  return <Link href={props.href}>{cloneElement(child, { className })}</Link>
 }
 
 export default ActiveLink

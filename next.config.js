@@ -1,7 +1,7 @@
 const withReactSvg = require('next-react-svg')
 
 const nextConfig = {
-  reactStrictMode: true
+  reactStrictMode: true,
 }
 
 module.exports = {
@@ -13,5 +13,5 @@ module.exports = {
     return config
   },
   nextConfig,
-  withReactSvg
+  withReactSvg,
 }
