@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
 import Link from 'next/link'
 
-import { ActiveLink } from './index'
+import { ActiveLink, ExternalLink } from './index'
 import { IFooter } from '../types'
-import { OutLink } from '../public/assets'
+import { OutIcon } from '../public/assets'
 
 const Footer: FC<IFooter> = ({ footerLinks, moreLinks, quickLinks }) => {
   const year = new Date()
@@ -17,7 +17,7 @@ const Footer: FC<IFooter> = ({ footerLinks, moreLinks, quickLinks }) => {
           </div>
           <div className="w-96 text-sm leading-6 text-slate-700 dark:text-slate-500">
             <p className="mt-3 text-sm">Авторское право © {year.getFullYear()} - Mickey_Zzz.</p>
-            <p className="mt-1 text-sm">Сделано с ❤️ 🙌 в Кунгуре, Россия</p>
+            <p className="mt-1 text-sm">Сделано с ❤ 🙌 в Кунгуре, Россия</p>
           </div>
         </div>
         <div className="flex flex-col md:flex-row justify-center item-center lg:w-1/10 pb-8 md:pb-8 lg:pb-0 space-y-3 md:space-y-0 sm:space-y-8 lg:space-y-0 lg:flex lg:space-y-0 order-1 lg:order-2">
@@ -44,11 +44,9 @@ const Footer: FC<IFooter> = ({ footerLinks, moreLinks, quickLinks }) => {
                     key={item.id}
                     className="flex flex-row items-center hover:text-primary dark:hover:text-sky-400 hover:fill-primary dark:hover:fill-sky-400"
                   >
-                    <Link href={item.path}>
-                      <a>{item.title}</a>
-                    </Link>
+                    <ExternalLink href={item.path}>{item.title}</ExternalLink>
                     <span className="ml-2">
-                      <OutLink className="h-4 w-4" />
+                      <OutIcon className="h-4 w-4" />
                     </span>
                   </li>
                 )

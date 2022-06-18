@@ -4,6 +4,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { MDXProvider } from '@mdx-js/react'
+
 // @ts-ignore
 import MDX from '@mdx-js/runtime'
 
