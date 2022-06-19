@@ -6,16 +6,16 @@ const Hero = () => {
 
   return (
     <section className="max-w-screen-2xl mx-auto pt-20 sm:pt-24 lg:pt-32 text-center px-3 sm:px-6 md:px-8">
-      <h1 className="text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center dark:text-gray-0">
+      <h1 className="text-gray-750 translate-y-0 delay-200 transition-all ease-in-out delay-200 font-extrabold text-4xl sm:text-5xl lg:text-5xl5 tracking-tight text-center dark:text-gray-0">
         Черепашки-ниндзя API
       </h1>
-      <p className="mt-6 text-lg text-slate-600 text-center max-w-5xl mx-auto dark:text-slate-400">
+      <p className="mt-6 text-lg text-gray-750 text-center max-w-5xl mx-auto dark:text-slate-400">
         API предоставляет вам лучший опыт разработки со всеми функциями, необходимыми для готовой версии продукта
       </p>
       <div className="flex flex-row mt-6 sm:mt-10 flex justify-center space-x-6 text-sm">
         <button
           onClick={() => router.push('/docs/introduction')}
-          className="bg-primary hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-400 dark:focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 dark:focus:ring-offset-sky-300 text-white-900 font-semibold h-12 px-6 rounded-lg w-full flex items-center dark:ring-0 justify-center sm:w-auto dark:bg-sky-500 dark:highlight-white/5 dark:hover:bg-sky-400"
+          className="bg-primary hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-400 dark:focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 dark:focus:ring-offset-sky-300 text-white-900 dark:text-gray-0 font-semibold h-12 px-6 rounded-lg w-full flex items-center dark:ring-0 justify-center sm:w-auto dark:bg-sky-500 dark:highlight-white/5 dark:hover:bg-sky-400"
         >
           Документация
         </button>

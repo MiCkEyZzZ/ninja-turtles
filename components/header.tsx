@@ -60,15 +60,13 @@ const Header: FC<IHeader> = ({ navigation, onToggle }) => {
             </button>
           </div>
           <div className="hidden md:flex flex-row items-center ml-5">
-            <nav>
-              <ul className="flex flex-row items-center space-x-8">
+            <nav className="text-sm leading-6 font-semibold text-gray-750 dark:text-slate-200">
+              <ul className="flex space-x-8">
                 {navigation.map((nav) => {
                   return (
-                    <li key={nav.id} className="flex items-center text-slate-700 dark:text-slate-100">
+                    <li key={nav.id} className="flex items-center dark:text-slate-100">
                       <ActiveLink activeClassName="text-primary dark:text-sky-400" href={nav.path}>
-                        <a className="flex-auto text-sm font-semibold hover:text-primary dark:hover:text-sky-400">
-                          {nav.title}
-                        </a>
+                        <a className="flex-auto hover:text-primary dark:hover:text-sky-400">{nav.title}</a>
                       </ActiveLink>
                     </li>
                   )
