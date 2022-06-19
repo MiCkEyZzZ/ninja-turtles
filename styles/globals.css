@@ -4,14 +4,17 @@
 
 html {
   min-width: 360px;
+  padding: 0;
+  margin: 0;
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
 }
 
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: Inter var,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  font-family: Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+  font-kerning: normal;
+  font-weight: 400;
 }
 
 #__next {
@@ -35,6 +38,7 @@ pre[class*="language-"] {
 
   background: none;
 }
+
 h2 {
   font-size: 1.75rem;
   margin: 0.67em 0 0.67em 0;
@@ -80,9 +84,7 @@ pre[class*='language-'] {
   margin: 1em 0 1em;
   padding: 15px;
 
-  background: hsl(0deg, 0%, 100%);
-  border-radius: 4px;
-  border: 1px solid #eeeeee;
+  @apply relative z-10 -ml-10 col-span-3 bg-inherit rounded-xl xl:ml-0 ring-1 ring-gray-200 dark:ring-1 dark:ring-slate-800;
   overflow: auto;
 }
 code[class*=language-] {
@@ -105,96 +107,29 @@ pre.language-json {
 
 /*Inline code*/
 
-p > code[class*='language-'],
-li > code[class*='language-'] {
-  font-weight: 500;
-  padding: 0.25rem 0.5rem;
-  white-space: normal;
-  color: #476582;
-  background: #1b1f230d;
-  border-radius: 4px;
-}
+
 .token.property-query {
-  color: #ef3b7d;
+  @apply text-pink-600;
 }
 .token.object {
-  color: #ef3b7d;
+  @apply text-pink-600;
 }
-.token.attr-name {
-  color: #476582;
-}
-.token.property {
-  color: #476582;
-}
-.token.punctuation {
-  color: #476582;
-}
-.token.number {
-  color: #476582;
-}
-.token.string {
-  color: #476582;
-}
-.token.keyword {
-  color: #476582;
-}
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-  color: slategray;
-}
-.namespace {
-  opacity: 0.7;
-}
-.token.tag,
-.token.constant,
-.token.symbol,
-.token.deleted {
-  color: #000000;
-}
-.token.boolean,
-.token.selector,
-.token.char,
-.token.builtin,
-.token.inserted {
-  color: #000000;
-}
-.token.operator,
-.token.punctuation,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string,
-.token.variable {
-  color: #bebec5;
-}
-.token.atrule,
-.token.attr-value,
-.token.function {
-  color: #e6db74;
-}
-.token.regex,
-.token.important {
-  color: #fd971f;
-}
-.token.important,
-.token.bold {
-  font-weight: bold;
-}
+
 .token.italic {
   font-style: italic;
 }
+
 .token.entity {
   cursor: help;
 }
+
 table th,
 table td {
   font-size: 15px;
   text-align: left;
   padding: 10px 13px;
 
-  color: #476582;
+  @apply text-slate-400 w-screen;
   border-bottom: 1px solid #eeeeee;
 }
 
@@ -227,6 +162,8 @@ table td {
 
 .prose pre {
   @apply border border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-900;
+
+  /*@apply dark:bg-slate-800;*/
 }
 
 .prose code {
@@ -257,7 +194,7 @@ table td {
 }
 
 .token.punctuation {
-  @apply text-gray-300 dark:text-gray-300; /* changed */
+  @apply text-gray-300 dark:text-slate-400; /* changed */
 }
 
 .token.tag,
@@ -274,7 +211,7 @@ table td {
 }
 
 .token.property {
-  @apply text-gray-500 dark:text-gray-200; /* changed */
+  @apply text-gray-500 dark:text-slate-50; /* changed */
 }
 
 .token.operator {
@@ -286,11 +223,11 @@ table td {
 .token.char,
 .token.builtin,
 .token.inserted {
-  @apply text-gray-500 dark:text-gray-200; /* changed */
+  @apply text-gray-500 dark:text-slate-50; /* changed */
 }
 
 .token.string {
-  @apply text-amber-600; /* changed */
+  @apply text-amber-600 dark:text-amber-300; /* changed */
 }
 
 .token.entity,
@@ -322,7 +259,7 @@ table td {
 
 code[class*='language-'],
 pre[class*='language-'] {
-  @apply text-gray-800 dark:text-gray-50 dark:bg-slate-800 dark:border-slate-800 my-5;
+  @apply text-gray-800 dark:text-slate-50 dark:bg-slate-800 text-sm leading-6 text-slate-50 dark:border-slate-800 my-5;
 }
 
 p > code {

@@ -22,11 +22,11 @@ const Card: FC<Character> = ({ character }) => {
       <div className="sm:w-full pt-6 md:pt-2 pb-3 md:pb-2 sm:px-4 lg:px-4 text-back dark:text-gray-200">
         <div className="pb-3">
           <blockquote>
-            <h1 className="flex-auto text-xl font-semibold">
+            <h3 className="flex-auto text-xl font-semibold p-0 m-0 text-gray-750 dark:text-gray-0">
               <Link href="#">
                 <a className="font-bold hover:text-primary dark:hover:text-sky-400">{title}</a>
               </Link>
-            </h1>
+            </h3>
             <div className="flex flex-row items-center mt-2">
               <span className="relative flex h-2 w-2 mr-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>

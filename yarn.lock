@@ -991,7 +991,7 @@
     core-js-pure "^3.20.2"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.10.2", "@babel/runtime@^7.16.3", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.10.2", "@babel/runtime@^7.14.0", "@babel/runtime@^7.14.8", "@babel/runtime@^7.16.3", "@babel/runtime@^7.8.4":
   version "7.18.3"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.18.3.tgz#c7b654b57f6f63cf7f8b418ac9ca04408c4579f4"
   integrity sha512-38Y8f7YUhce/K7RMwTp7m0uCumpv9hZkitCbBClqQIow1qSbCvGkcegKOXpEWCQLfWmevgRiWokZ1GkpfhbZug==
@@ -1067,6 +1067,21 @@
   dependencies:
     debug "^3.1.0"
     lodash.once "^4.1.1"
+
+"@emotion-icons/emotion-icon@4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@emotion-icons/emotion-icon/-/emotion-icon-4.1.0.tgz#587667e92a72dc3b271713eed4b72c6bf3b22df1"
+  integrity sha512-bOUbWj8DPjUK5MtRx2ApMudOnh/tasqJwa+sdRbqsZD0g0hYf0jCsTDNs/57VvGOJH2PfWDKD1jbLjwajAYT9A==
+  dependencies:
+    "@babel/runtime" "^7.14.0"
+
+"@emotion-icons/heroicons-solid@^3.18.0":
+  version "3.18.0"
+  resolved "https://registry.yarnpkg.com/@emotion-icons/heroicons-solid/-/heroicons-solid-3.18.0.tgz#d4203641b603f5705381159c2a9d1041eefe01f1"
+  integrity sha512-fIuLEBt/S9v4yaIzlJPepkkpCihiv7Ru/8WEsMz0eIr1mZWq2uxfk/B43l6p7FUdrF1dDUG7ONCbGo/z2RncQg==
+  dependencies:
+    "@babel/runtime" "^7.14.8"
+    "@emotion-icons/emotion-icon" "4.1.0"
 
 "@eslint/eslintrc@^1.2.3":
   version "1.3.0"

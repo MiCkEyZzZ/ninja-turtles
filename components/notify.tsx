@@ -26,9 +26,9 @@ const Notify = () => {
               </g>
             </svg>
           </div>
-          <div className="dark:text-gray-0">
-            <h2 className="text-xl font-semibold">Общайтесь с сообществом</h2>
-            <p className="mt-1 opacity-70">
+          <div className="flex flex-col justify-center py-1">
+            <h3 className="p-0 m-0 text-xl font-semibold text-gray-750 dark:text-gray-0">Общайтесь с сообществом</h3>
+            <p className="mt-2 opacity-70 text-gray-750 dark:text-gray-0">
               Не стесняйтесь задавать вопросы, сообщать о проблемах и знакомиться с новыми людьми.
             </p>
           </div>
@@ -36,7 +36,7 @@ const Notify = () => {
         <Link href="https://t.me/the_ninja_turtles_api">
           <a
             target="_blank"
-            className="bg-primary hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-400 dark:focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 dark:focus:ring-offset-sky-300 text-white-900 font-semibold h-12 px-6 rounded-lg w-full flex items-center dark:ring-0 justify-center sm:w-auto dark:bg-sky-500 dark:highlight-white/5 dark:hover:bg-sky-400"
+            className="bg-primary hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-400 dark:focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 dark:focus:ring-offset-sky-300 text-white-900 dark:text-gray-0 font-semibold h-12 px-6 rounded-lg w-full flex items-center dark:ring-0 justify-center sm:w-auto dark:bg-sky-500 dark:highlight-white/5 dark:hover:bg-sky-400"
           >
             @TNTAPI Telegram
           </a>
