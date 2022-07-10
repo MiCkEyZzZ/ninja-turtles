@@ -1,61 +1,87 @@
-import React, { FC } from 'react'
-import { GetStaticPaths, GetStaticProps } from 'next'
+import React from 'react'
+import { GetStaticProps, GetStaticPaths } from 'next'
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { MDXProvider } from '@mdx-js/react'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import MDX from '@mdx-js/runtime'
 
-import Layout from '../../layouts/layout'
-import { ISupport } from '../../types'
+import { ISnippet } from '../../interfaces'
+import SnippetsLayout from '../../layouts/snippets'
 
 const components = {
-  h1: (props: any) => <h1 style={{ color: 'red' }}>{props.children}</h1>,
-  p: (props: any) => <p style={{ color: 'green' }}>{props.children}</p>,
+	h1: (props: any) => <h1 style={{ color: 'red' }}>{props.children}</h1>,
+	p: (props: any) => <p style={{ color: 'green' }}>{props.children}</p>,
 }
 
-const Support: FC<ISupport> = ({ meta, content }) => {
-  return (
-    <Layout meta={meta}>
-      <div className="overflow-hidden md:mb-0 pt-16 min-h-[65rem]">
-        <section className="flex justify-center w-full items-center">
-          <div className="flex flex-row">
-            <div className="flex flex-col px-0 pt-0 pb-5">
-              <div className="lg:prose-xl w-screen max-w-screen-md m-auto text-slate-900 dark:text-gray-0">
-                <MDXProvider components={components}>
-                  <MDX>{content}</MDX>
-                </MDXProvider>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </Layout>
-  )
+const SupportPage = ({ support }: { support: ISnippet }): JSX.Element => {
+	return (
+		<SnippetsLayout snippet={support}>
+			<div className="grid grid-cols-1 grid-rows-1 px-3 sm:px-6 md:px-6 lg:px-8 overflow-hidden">
+				<div className="max-w-screen-md min-h-[65rem] lg:prose-xl w-screen m-auto py-16 px-6 text-slate-900 dark:text-gray-0">
+					<MDXProvider components={components}>
+						<MDX>{support.content}</MDX>
+					</MDXProvider>
+				</div>
+			</div>
+		</SnippetsLayout>
+	)
 }
 
 export const getStaticProps: GetStaticProps = async (props) => {
-  const folderPath = path.join(process.cwd(), 'mdx')
-  // @ts-ignore
-  const filePath = path.join(folderPath, `${props.params.support}.mdx`)
-  const rawFileSource = fs.readFileSync(filePath)
+	const folderPath = path.join(process.cwd(), 'data/snippets')
+	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+	// @ts-ignore
+	const filePath = path.join(folderPath, `${props.params.support}.mdx`)
+	const rawFileSource = fs.readFileSync(filePath)
 
-  const { content, data } = matter(rawFileSource)
+	const { content, data } = matter(rawFileSource)
 
-  return {
-    props: {
-      ...data,
-      content,
-    },
-  }
+	return {
+		props: {
+			support: {
+				...data,
+				content,
+			},
+		},
+	}
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [{ params: { support: 'support-us' } }],
-    fallback: false,
-  }
+	return {
+		paths: [{ params: { support: 'support-us' } }],
+		fallback: false,
+	}
 }
 
-export default Support
+export default SupportPage
+
+/*
+export const getStaticProps: GetStaticProps = async (props) => {
+	const folderPath = path.join(process.cwd(), 'data/snippets')
+	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+	// @ts-ignore
+	const filePath = path.join(folderPath, `${props.params.support}.mdx`)
+	const rawFileSource = fs.readFileSync(filePath)
+
+	const { content, data } = matter(rawFileSource)
+
+	return {
+		props: {
+			support: {
+				...data,
+				content,
+			},
+		},
+	}
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+	return {
+		paths: [{ params: { support: 'support-us' } }],
+		fallback: false,
+	}
+}
+*/

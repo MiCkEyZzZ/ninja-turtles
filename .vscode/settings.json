@@ -1,0 +1,9 @@
+{
+	"workbench.settings.useSplitJSON": false,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.stylelint": true
+	},
+	"css.validate": false,
+ 	"less.validate": false,
+  	"scss.validate": false
+}

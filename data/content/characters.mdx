@@ -1,0 +1,191 @@
+---
+title: Персонажи
+seoTitle: Персонажи
+description: Описание всех доступных методов
+coverImage: ''
+layout: Docs
+slug: characters
+date: '2022-05-19T08:00:00.000Z'
+---
+
+## Персонаж
+Всего `204` персонажа, отсортированных по `id`.
+
+#### Схема персонажа
+
+| Ключ           | Тип    | Описание                                            |
+|----------------|--------|-----------------------------------------------------|
+| id             | Int    | Идентификатор персонажа                             |,
+| name           | String | Имя персонажа                                       |,
+| species        | String | Вид персонажа                                       |,
+| type           | String | Тип или подвид персонажа                            |,
+| status         | String | Статус персонажа                                    |,
+| occupation     | String | Род деятельности персонажа                          |,
+| gender         | String | Пол персонажа                                       |,
+| weapons        | Array  | Список оружия, которым обладает персонаж            |,
+| bandanna_color | String | Цвет повязки персонажа(необязательное поле)         |,
+| affiliation    | String | Принадлежность персонажа к организациям             |,
+| image_cover    | String | Ссылка на изображение персонажа                     |,
+| url            | String | Ссылка на собственный конечный URL-адреса персонажа |,
+| createdAt      | String | Время, когда персонаж был создан в базе данных      |
+| location       | Object | Имя ссылки на адрес местоположения персонажа        |,
+| episodes       | Array  | Список эпизодов, в которых появился этот персонаж   |,
+
+#### Получить всех персонажей
+Вы можете получить доступ к списку персонажей путём добавления  `/character` в URL-адрес.
+```json
+{
+  "info": {
+    "count": 280,
+    "pages": 10,
+    "next": "https://ninjaturtlesapi.com/api/character/?page=2",
+    "prev": null
+  },
+  "data": [
+    {
+      "id": 1,
+      "name": "Leonardo",
+      "species": "Turtle",
+      "type": "unknown",
+      "status": "Alive",
+      "locationId": 2,
+      "occupation": "Ninja, Turtle Leader",
+      "gender": "Male",
+      "weapons": [
+        "Ninjato blades",
+        "Ninja Stars",
+        "Sword",
+        "Twin Katanas"
+      ],
+      "bandana_color": "Blue",
+      "affiliation": "TMNT",
+      "bandanna_color": "Blue",
+      "image_cover": "character-1.png",
+      "url": "https://ninjaturtlesapi.com/api/character/1",
+      "createdAt": "2022-06-14T20:11:16.346Z"
+    }
+  ]
+}
+```
+
+#### Получить одного персонажа
+Для получения одного персонажа необходимо произвести добавление в URL-адрес, `id` персонажа, в качестве параметра: `/character/1`
+
+```json
+{
+  "id": 2,
+  "name": "Donatello",
+  "species": "Turtle",
+  "type": "unknown",
+  "status": "Alive",
+  "locationId": 2,
+  "occupation": "Inventor",
+  "gender": "Male",
+  "weapons": [
+    "Bō staff",
+    "Spear",
+    "Laser gun"
+  ],
+  "bandana_color": "Purple",
+  "affiliation": "TMNT",
+  "image_cover": "character-2.jpeg",
+  "url": "https://ninjaturtlesapi.com/api/character/2",
+  "createdAt": "2022-06-14T20:15:18.382Z"
+}
+```
+
+#### Получить несколько персонажей
+Для получения нескольких персонажей вы можете добавить массив `ids` в качестве параметра в URL-адрес:  `/character/[1,2,3]`  или перечислить числа через запятую, которые будут обозначать `id` персонажа  `/character/1,2,3`
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Leonardo",
+    "species": "Turtle",
+    "type": "unknown",
+    "status": "Alive",
+    "locationId": 2,
+    "occupation": "Ninja, Turtle Leader",
+    "gender": "Male",
+    "weapons": [
+      "Ninjato blades",
+      "Ninja Stars",
+      "Sword",
+      "Twin Katanas"
+    ],
+    "bandana_color": "Blue",
+    "affiliation": "TMNT",
+    "image_cover": "character-1.jpeg",
+    "url": "https://ninjaturtlesapi.com/api/character/1",
+    "createdAt": "2022-06-14T20:11:16.346Z"
+  },
+  {
+    "id": 2,
+    "name": "Donatello",
+    "species": "Turtle",
+    "type": "unknown",
+    "status": "Alive",
+    "locationId": 2,
+    "occupation": "Inventor",
+    "gender": "Male",
+    "weapons": [
+      "Bō staff",
+      "Spear",
+      "Laser gun"
+    ],
+    "bandana_color": "Purple",
+    "affiliation": "TMNT",
+    "image_cover": "character-2.jpeg",
+    "url": "https://ninjaturtlesapi.com/api/character/2",
+    "createdAt": "2022-06-14T20:15:18.382Z"
+  }
+]
+```
+#### Фильтрация персонажей
+Вы также можете включить фильтры в URL-адрес, добавив дополнительные параметры запроса. Чтобы начать фильтрацию, добавьте знак  `?`, за которым следует запрос `<query>=<value>`.
+Если вы хотите связать несколько запросов в одном вызове, используйте знак  `&`, за которым следует запрос.
+
+Например, если вы хотите проверить, сколько существует живых персонажей просто добавьте `?name=character&status=alive` в URL-адрес.
+
+**Доступные параметры:**
+
+* `name`: фильтрация по заданному имени;
+* `status`: фильтрация по заданному статусу (жив, мертв или неизвестно);
+* `species`: фильтрация по заданному виду;
+* `type`: фильтрация по заданному типу;
+* `gender`: фильтрация по заданному полу (женский, мужской, бесполый или неизвестно);
+
+```json
+{
+  "info": {
+    "count": 20,
+    "pages": 2,
+    "next": "https://ninjaturtlesapi.com/api/character/?page=2&name=character&status=alive",
+    "prev": null
+  },
+  "data": [
+    {
+      "id": 5,
+      "name": "Splinter",
+      "species": "Mutant rat",
+      "type": "unknown",
+      "status": "Alive",
+      "locationId": 3,
+      "occupation": "Ninja",
+      "gender": "Male",
+      "weapons": [
+        "Walking stick",
+        "Teeth and claws",
+        "Swords"
+      ],
+      "bandana_color": "unknown",
+      "affiliation": "TMNT",
+      "image_cover": "character-5.jpeg",
+      "url": "https://ninjaturtlesapi.com/api/character/5",
+      "createdAt": "2022-06-14T20:23:33.084Z"
+    }
+  ]
+}
+```
+

@@ -1,0 +1,109 @@
+---
+title: Введение
+seoTitle: Введение
+description: Описание всех доступных методов
+image: ''
+data: '2022-03-16T05:35:07.322Z'
+layout: Docs
+slug: introduction
+---
+
+## Введение
+
+Эта документация поможет вам ознакомиться с ресурсами программного интерфейса приложения Черепашек-ниндзя и изучить,
+каким образом создавать различные запросы, чтобы вы могли извлечь из этого максимальную пользу
+
+#### GraphQL
+Ссылка на реализацию спецификации GraphQL, предназначенная для запуска GraphQL.
+
+```graphql
+query {
+    characters(page: 2, filter: { name: "Leonardo" }) {
+        info {
+            count
+        }
+        data {
+            name
+        }
+    }
+    location(id: 1) {
+        id
+    }
+    episodesByIds(ids: [1, 2]) {
+        id
+    }
+}
+```
+#### bash
+Ссылка на реализацию спецификации Rest, предназначенная для выполнения Rest запросов.
+
+http://ninjaturtlesapi.com/api
+
+```json
+{
+  "characters": "https://ninjaturtlesapi.com/api/character",
+  "locations": "https://ninjaturtlesapi.com/api/location",
+  "episodes": "https://ninjaturtlesapi.com/api/episode"
+}
+```
+#### Информация и постраничный вывод
+Программный интерфейс приложения автоматически распределит ответы приходящие от сервера по страницам. Вы получите до `10` документов на страницу. Каждый ресурс содержит  `info`  объект с информацией об ответе.
+
+| Ключ  | Тип    | Описание                      |
+|-------|--------|-------------------------------|
+| count | Int    | Продолжительность ответа      |,
+| pages | Int    | Количество страниц            |,
+| next  | String | Ссылка на следующую страницу  |,
+| prev  | String | Ссылка на предыдущую страницу |
+
+```json
+{
+  "info": {
+    "count": 280,
+    "pages": 20,
+    "next": "",
+    "prev": null
+  },
+  "data": []
+}
+```
+Вы можете получить доступ к различным страницам с  `page`  параметром.
+Если вы не укажите ни одной страницы, будет показана
+первая страница.
+Например, чтобы получить доступ к странице 2, добавьте  `?page=2` в конец URL-адреса.
+
+```json
+{
+  "info": {
+    "count": 280,
+    "pages": 15,
+    "next": "https://ninjaturtlesapi.com/api/character/?page=10",
+    "prev": "https://ninjaturtlesapi.com/api/character/?page=8"
+  },
+  "data": [
+    {
+      "id": 1,
+      "name": "Leonardo",
+      "species": "Turtle",
+      "type": "unknown",
+      "status": "Alive",
+      "locationId": 2,
+      "occupation": "Ninja, Turtle Leader",
+      "gender": "Male",
+      "weapons": [
+        "Ninjato blades",
+        "Ninja Stars",
+        "Sword",
+        "Twin Katanas"
+      ],
+      "bandana_color": "Blue",
+      "affiliation": "TMNT",
+      "image_cover": "character-1.jpeg",
+      "url": "https://ninjaturtlesapi.com/api/character/1",
+      "createdAt": "2022-06-14T20:11:16.346Z",
+      "location": {},
+      "episode": []
+    }
+  ]
+}
+```

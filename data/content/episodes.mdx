@@ -1,0 +1,149 @@
+---
+title: Серии
+seoTitle: Серии
+description: Описание всех доступных методов
+image: ''
+layout: Docs
+slug: episodes
+---
+
+## Серии
+В общей сложности `219` серий отсортированных по `id`
+
+#### Схема серии
+
+| Ключ        | Тип    | Описание                                   |
+|-------------|--------|--------------------------------------------|
+| id          | Int    | Идентификатор серии                        |,
+| name        | String | Наименование серии                         |,
+| episode     | String | Код серии                                  |,
+| producers   | Array  | Список продюсеров                          |,
+| season      | String | Код сезона                                 |,
+| air_date    | String | Дата выхода серии                          |,
+| image_cover | String | Ссылка на изображение эпизода              |,
+| url         | String | Ссылка на собственный конечный адрес серии |,
+| createdAt   | String | Время создания серии в базе данных         |,
+| characters  | Array  | Список персонажей участвующих в серии      |
+
+#### Получить все серии
+Вы можете получить доступ к списку серий, добавив параметр запроса `/episode` в URL-адрес.
+
+```json
+{
+  "info": {
+    "count": 249,
+    "pages": 1,
+    "next": "https://ninjaturtlesapi.com/api/episode/?page=2",
+    "prev": null
+  },
+  "data": [
+    {
+      "id": 1,
+      "name": "Turtle Tracks",
+      "episode": "1",
+      "producers": [
+        "Kara Vallow"
+      ],
+      "season": "S01E01",
+      "air_date": "December 14, 1987",
+      "image_cover": "episode-1.jpeg",
+      "url": "https://ninjaturtlesapi.com/api/episode/1",
+      "createdAt": "2022-06-20T03:44:38.702Z",
+      "characters": []
+    }
+  ]
+}
+```
+
+#### Получить одну серию
+Вы можете получить одну серию, добавив  `id`  в качестве параметра: `/episode/28`
+
+```json
+{
+  "id": 2,
+  "name": "Enter the Shredder",
+  "episode": "2",
+  "producers": [
+    "Osamu Yoshioka",
+    "Rudy J. Zamora"
+  ],
+  "season": "S01E02",
+  "air_date": "December 15, 1987",
+  "image_cover": "episode-2.jpeg",
+  "url": "https://ninjaturtlesapi.com/api/episode/2",
+  "createdAt": "2022-06-20T03:49:25.166Z",
+  "characters": []
+}
+```
+
+#### Получить несколько серий
+Вы можете получить несколько эпизодов, добавив массив `ids` в качестве параметра: `/episode/[1,2,3]` или `/episode/1,2,3`
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Turtle Tracks",
+    "episode": "1",
+    "producers": [
+      "Kara Vallow"
+    ],
+    "season": "S01E01",
+    "air_date": "December 14, 1987",
+    "image_cover": "episode-1.jpeg",
+    "url": "https://ninjaturtlesapi.com/api/episode/1",
+    "createdAt": "2022-06-20T03:44:38.702Z",
+    "characters": []
+  },
+  {
+    "id": 2,
+    "name": "Enter the Shredder",
+    "episode": "2",
+    "producers": [
+      "Osamu Yoshioka",
+      "Rudy J. Zamora"
+    ],
+    "season": "S01E02",
+    "air_date": "December 15, 1987",
+    "image_cover": "episode-2.jpeg",
+    "url": "https://ninjaturtlesapi.com/api/episode/2",
+    "createdAt": "2022-06-20T03:49:25.166Z",
+    "characters": []
+  }
+]
+```
+
+#### Фильтрация серий
+
+**Доступные параметры:**
+
+* `name`: фильтрация по заданному имени;
+* `season`: фильтрация по заданному коду серии;
+
+```json
+{
+  "info": {
+    "count": 1,
+    "page": 1,
+    "next": "https://ninjaturtlesapi.com/api/episode/?name=turtle trucks",
+    "prev": null
+  },
+  "data": [
+    {
+      "id": 2,
+      "name": "Enter the Shredder",
+      "episode": "2",
+      "producers": [
+        "Osamu Yoshioka",
+        "Rudy J. Zamora"
+      ],
+      "season": "S01E02",
+      "air_date": "December 15, 1987",
+      "image_cover": "episode-2.jpeg",
+      "url": "https://ninjaturtlesapi.com/api/episode/2",
+      "createdAt": "2022-06-20T03:49:25.166Z",
+      "characters": []
+    }
+  ]
+}
+```

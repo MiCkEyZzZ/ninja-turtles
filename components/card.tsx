@@ -1,68 +1,67 @@
 import React, { FC } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Character } from '../types'
 
-const Card: FC<Character> = ({ character }) => {
-  const { id, image, title, species, status, lastAppearance, firstAppearance } = character
+import { ICharacter } from '../interfaces'
 
-  return (
-    <figure
-      key={id}
-      className="flex flex-col sm:flex-row lg:h-auto md:max-h-52 p-8 sm:pt-0 sm:pb-0 sm:pl-0 sm:pr-0 lg:h-64 bg-gray-0 dark:bg-slate-800 border dark:border-slate-800 rounded-xl overflow-hidden"
-    >
-      <div className="flex relative z-10 overflow-hidden rounded-lg sm:rounded-none flex-none mx-auto sm:mr-auto w-24 h-24 sm:w-48 sm:h-auto">
-        <Image
-          className="w-24 h-24 sm:w-full md:w-48 object-cover rounded-full sm:rounded-none md:rounded-none mx-auto"
-          src={image}
-          alt="Leonardo"
-          priority={true}
-        />
-      </div>
-      <div className="sm:w-full pt-6 md:pt-2 pb-3 md:pb-2 sm:px-4 lg:px-4 text-back dark:text-gray-200">
-        <div className="pb-3">
-          <blockquote>
-            <h3 className="flex-auto text-xl font-semibold p-0 m-0 text-gray-750 dark:text-gray-0">
-              <Link href="#">
-                <a className="font-bold hover:text-primary dark:hover:text-sky-400">{title}</a>
-              </Link>
-            </h3>
-            <div className="flex flex-row items-center mt-2">
-              <span className="relative flex h-2 w-2 mr-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-100"></span>
-              </span>
-              <span className="w-full flex-none text-sm font-medium">
-                {status} - {species}
-              </span>
-            </div>
-          </blockquote>
-        </div>
-        <div>
-          <figcaption className="font-medium">
-            <div className="w-full flex-none text-sm font-medium text-slate-700 dark:text-slate-500">
-              <span>Последнее местоположение:</span>
-            </div>
-            <div className="flex-auto text-sm mt-1 font-bold hover:text-primary dark:hover:text-sky-400">
-              <Link href="#">
-                <a>{lastAppearance}</a>
-              </Link>
-            </div>
-          </figcaption>
-          <figcaption className="font-medium pt-3">
-            <div className="w-full flex-none text-sm font-medium text-slate-700 dark:text-slate-500">
-              <span>Первое появление:</span>
-            </div>
-            <div className="flex-auto text-sm mt-1 font-bold hover:text-primary dark:hover:text-sky-400">
-              <Link href="#">
-                <a>{firstAppearance}</a>
-              </Link>
-            </div>
-          </figcaption>
-        </div>
-      </div>
-    </figure>
-  )
+const Card: FC<ICharacter> = ({ character }): JSX.Element => {
+	const { image, title, species, status, lastAppearance, firstAppearance } = character
+
+	return (
+		<figure className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 grid-rows-1 lg:grid-rows-1 bg-gray-0 dark:bg-slate-800 border dark:border-slate-800 rounded-xl overflow-hidden">
+			<div className="grid h-auto relative">
+				<Image
+					className="flex w-24 h-24 md:w-48 md:h-auto rounded-none mx-auto object-cover"
+					width="384"
+					height="312"
+					src={image}
+					alt={title}
+				/>
+			</div>
+			<div className="grid lg:grid-cols-1 lg:grid-auto-rows-auto py-8 md:py-3 lg:py-2 px-5 lg:px-3 text-back dark:text-gray-200">
+				<div className="pb-0">
+					<blockquote>
+						<h1 className="flex-auto text-xl font-semibold p-0 m-0 text-gray-750 dark:text-gray-0">
+							<Link href="#">
+								<a className="font-bold hover:text-primary dark:hover:text-sky-400 px-0 outline-offset-4">{title}</a>
+							</Link>
+						</h1>
+						<div className="flex flex-row items-center mt-2 px-0">
+							<dl className="relative flex h-2 w-2 mr-3">
+								<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+								<span className="relative inline-flex rounded-full h-2 w-2 bg-green-100"></span>
+							</dl>
+							<span className="w-full flex-none text-sm font-medium">
+								{status} - {species}
+							</span>
+						</div>
+					</blockquote>
+				</div>
+				<div>
+					<figcaption className="font-medium">
+						<div className="w-full flex-none text-sm font-medium px-0 text-slate-500 dark:text-slate-400">
+							<span>Последнее местоположение:</span>
+						</div>
+						<div className="flex-auto text-sm mt-1 font-bold hover:text-primary dark:hover:text-sky-400">
+							<Link href="#">
+								<a className="px-0 py-1 outline-offset-4">{lastAppearance}</a>
+							</Link>
+						</div>
+					</figcaption>
+					<figcaption className="font-medium pt-3">
+						<div className="w-full flex-none text-sm font-medium px-0 text-slate-500 dark:text-slate-400">
+							<span>Первое появление:</span>
+						</div>
+						<div className="flex-auto text-sm mt-1 font-bold hover:text-primary dark:hover:text-sky-400">
+							<Link href="#">
+								<a className="px-0 py-1 outline-offset-4">{firstAppearance}</a>
+							</Link>
+						</div>
+					</figcaption>
+				</div>
+			</div>
+		</figure>
+	)
 }
 
 export default Card
