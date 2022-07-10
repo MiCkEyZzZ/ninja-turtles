@@ -1,56 +1,56 @@
-import React, { FC } from 'react'
+import React from 'react'
+import { GetStaticProps, GetStaticPaths } from 'next'
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { GetStaticProps, GetStaticPaths } from 'next'
 import { MDXProvider } from '@mdx-js/react'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import MDX from '@mdx-js/runtime'
 
-import Layout from '../../layouts/layout'
-import { IPrivacy } from '../../types'
+import { ISnippet } from '../../interfaces'
+import SnippetsLayout from '../../layouts/snippets'
 
-const Privacy: FC<IPrivacy> = ({ meta, content }) => {
-  return (
-    <Layout meta={meta}>
-      <div className="overflow-hidden md:mb-0 pt-16 min-h-[65rem]">
-        <section className="flex justify-center w-full items-center">
-          <div className="flex flex-row">
-            <div className="flex flex-col px-0 pt-0 pb-5">
-              <div className="lg:prose-xl w-screen max-w-screen-md m-auto text-slate-900 dark:text-gray-0">
-                <MDXProvider>
-                  <MDX>{content}</MDX>
-                </MDXProvider>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </Layout>
-  )
+const components = {}
+
+const PrivacyPage = ({ privacy }: { privacy: ISnippet }): JSX.Element => {
+	return (
+		<SnippetsLayout snippet={privacy}>
+			<div className="grid grid-cols-1 grid-rows-1 px-3 sm:px-6 md:px-6 lg:px-8 overflow-hidden">
+				<div className="max-w-screen-md min-h-[65rem] lg:prose-xl w-screen m-auto py-16 px-6 text-slate-900 dark:text-gray-0">
+					<MDXProvider components={components}>
+						<MDX>{privacy.content}</MDX>
+					</MDXProvider>
+				</div>
+			</div>
+		</SnippetsLayout>
+	)
 }
 
 export const getStaticProps: GetStaticProps = async (props) => {
-  const folderPath = path.join(process.cwd(), 'mdx')
-  // @ts-ignore
-  const filePath = path.join(folderPath, `${props.params.privacy}.mdx`)
-  const rawFileSource = fs.readFileSync(filePath)
+	const folderPath = path.join(process.cwd(), 'data/snippets')
+	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+	// @ts-ignore
+	const filePath = path.join(folderPath, `${props.params.privacy}.mdx`)
+	const rawFileSource = fs.readFileSync(filePath)
 
-  const { content, data } = matter(rawFileSource)
+	const { content, data } = matter(rawFileSource)
 
-  return {
-    props: {
-      ...data,
-      content,
-    },
-  }
+	return {
+		props: {
+			privacy: {
+				...data,
+				content,
+			},
+		},
+	}
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [{ params: { privacy: 'privacy-introduction' } }],
-    fallback: false,
-  }
+	return {
+		paths: [{ params: { privacy: 'privacy-policy' } }],
+		fallback: false,
+	}
 }
 
-export default Privacy
+export default PrivacyPage

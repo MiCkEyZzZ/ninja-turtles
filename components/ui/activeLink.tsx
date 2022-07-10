@@ -1,21 +1,22 @@
 import React, { Children, FC, ReactElement, cloneElement } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { ActiveLinkProps } from '../../types'
 
-const ActiveLink: FC<ActiveLinkProps> = ({ children, ...props }) => {
-  const router = useRouter()
+import { ActiveLinkProps } from '../../interfaces'
 
-  const child = Children.only(children) as ReactElement
-  let className = child.props ? child.props.className : ''
+const ActiveLink: FC<ActiveLinkProps> = ({ children, ...props }): JSX.Element => {
+	const router = useRouter()
 
-  if (router.asPath === props.href && props.activeClassName) {
-    className = `${className} ${props.activeClassName}`
-  }
+	const child = Children.only(children) as ReactElement
+	let className = child.props ? child.props.className : ''
 
-  delete props.activeClassName
+	if (router.asPath === props.href && props.activeClassName) {
+		className = `${className} ${props.activeClassName}`
+	}
 
-  return <Link href={props.href}>{cloneElement(child, { className })}</Link>
+	delete props.activeClassName
+
+	return <Link href={props.href}>{cloneElement(child, { className })}</Link>
 }
 
 export default ActiveLink

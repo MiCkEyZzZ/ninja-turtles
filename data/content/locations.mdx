@@ -1,0 +1,131 @@
+---
+title: Местоположение
+seoTitle: Местоположение
+description: Описание всех доступных методов
+image: ''
+layout: Docs
+slug: locations
+---
+
+## Местоположение
+Всего существует `15` местоположений отсортированных по `id`.
+
+#### Схема местоположения
+
+| Ключ        | Тип    | Описание                                                    |
+|-------------|--------|-------------------------------------------------------------|
+| id          | Int    | Идентификатор местоположения                                |,
+| name        | String | Наименование местоположения                                 |,
+| type        | String | Тип местоположения                                          |,
+| dimension   | String | Измерение, в котором находится местоположение               |,
+| url         | String | Ссылка на собственную конечную точку местоположения         |,
+| image_cover | String | Ссылка на изображение местоположения                        |,
+| images      | Array  | Список изображений каждого местоположения                   |,
+| createdAt   | String | Время, когда местоположение было создано в базе данных      |,
+| residents   | Array  | Список персонажей, которых в последний раз видели в локации |
+
+#### Получить все местоположения
+Вы можете получить доступ к списку местоположений с помощью добавления параметра запроса  `/location` в URL-адрес.
+
+```json
+{
+  "info": {
+    "count": 14,
+    "pages": 6,
+    "next": "https://ninjaturtlesapi.com/api/location/?page=2",
+    "prev": null
+  },
+  "data": [
+    {
+      "id": 1,
+      "name": "New York City",
+      "type": "City",
+      "dimension": "unknown",
+      "url": "https://ninjaturtlesapi.com/api/location/1",
+      "image_cover": "location-1.jpeg",
+      "images": [],
+      "createdAt": "2022-06-14T20:27:39.418Z",
+      "residents": []
+    }
+  ]
+}
+```
+
+#### Получить местоположение
+Для того, чтобы получить одно местоположение вы можете добавить  `id`  в качестве параметра запроса:  `/location/3`
+
+```json
+{
+  "id": 2,
+  "name": "Sewers of New York City",
+  "type": "Sewers",
+  "dimension": "unknown",
+  "url": "https://ninjaturtlesapi.com/api/location/2",
+  "image_cover": "location-2.jpeg",
+  "images": [],
+  "createdAt": "2022-06-14T20:37:57.041Z",
+  "residents": []
+}
+```
+
+#### Получить несколько местоположений
+Вы можете получить несколько местоположений, добавив массив `ids` в качестве параметра: `/location/[1,2,3]` или `/location/1,2,3`
+
+```json
+[
+  {
+    "id": 3,
+    "name": "Turtle Lair",
+    "type": "Lair",
+    "dimension": "unknown",
+    "url": "https://ninjaturtlesapi.com/api/location/3",
+    "image_cover": "location-3.jpeg",
+    "images": [],
+    "createdAt": "2022-06-14T20:52:52.666Z",
+    "residents": []
+  },
+  {
+    "id": 4,
+    "name": "Technodrome",
+    "type": "Station",
+    "dimension": "unknown",
+    "url": "https://ninjaturtlesapi.com/api/location/4",
+    "image_cover": "location-4.jpeg",
+    "images": [],
+    "createdAt": "2022-06-14T20:55:45.055Z",
+    "residents": []
+  }
+]
+```
+
+#### Фильтрация местоположений
+
+**Доступные параметры:**
+
+* `name`: фильтрация по заданному имени;
+* `type`: фильтрация по заданному типу;
+* `dimension`: фильтрация по заданному параметру;
+
+```json
+{
+  "info": {
+    "count": 1,
+    "pages": 1,
+    "next": "https://ninjaturtlesapi.com/api/location/?type=park",
+    "prev": null
+  },
+  "data": [
+    {
+      "id": 5,
+      "name": "Ninja Pizza",
+      "type": "Pizzeria",
+      "dimension": "unknown",
+      "url": "https://ninjaturtlesapi.com/api/location/5",
+      "image_cover": "location-5.jpeg",
+      "images": [],
+      "createdAt": "2022-06-14T20:56:51.723Z",
+      "residents": []
+    }
+  ]
+}
+```
