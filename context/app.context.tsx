@@ -1,9 +1,9 @@
 import { createContext, ReactNode, useState } from 'react'
-import { IMenuItem, TopLevelCataegory } from '../interfaces'
+import { IMenuItem, TopLevelCategory } from '../interfaces'
 
 export interface IAppContext {
 	menu: IMenuItem[]
-	firstCategory: TopLevelCataegory
+	firstCategory: TopLevelCategory
 	setMenu?: (newMenu: IMenuItem[]) => void
 }
 
@@ -11,7 +11,7 @@ interface ISidebareContext {
 	stateSidebar: boolean
 }
 
-export const AppContext = createContext<IAppContext>({ menu: [], firstCategory: TopLevelCataegory.Introduction })
+export const AppContext = createContext<IAppContext>({ menu: [], firstCategory: TopLevelCategory.Introduction })
 export const SideBarContext = createContext<ISidebareContext>({ stateSidebar: false })
 
 export const AppContextProvider = ({

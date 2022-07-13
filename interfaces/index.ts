@@ -2,11 +2,28 @@ import { ReactNode } from 'react'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { UrlObject } from 'url'
 import { ParsedUrlQuery } from 'querystring'
-import { StaticImageData } from 'next/image'
+
+/* Меню начало */
+
+export interface PageItem {
+	_id: string
+	title: string
+	alias: string
+	category: string
+}
+
+export interface MenuItem {
+	_id: {
+		secondCategory: string
+	}
+	pages: PageItem[]
+}
+
+/* Меню начало */
 
 /* Sidebar Type Start */
 
-export enum TopLevelCataegory {
+export enum TopLevelCategory {
 	Introduction,
 	Characters,
 	Locations,
@@ -109,7 +126,7 @@ export interface ICharacter {
 export type CharacterType = {
 	id: number
 	title: string
-	image: StaticImageData
+	image: string
 	status: string
 	species: string
 	lastAppearance: string
@@ -154,4 +171,21 @@ type Navigation = {
 export interface IAlert {
 	title: string
 	description: string
+}
+
+/* Testimonials Type */
+export interface ITestimonials {
+	testimonials: TypeTestimonial[]
+}
+
+export interface ITestimonial {
+	testimonial: TypeTestimonial
+}
+
+export interface TypeTestimonial {
+	id: number
+	name: string
+	position: string
+	message: string
+	image?: string
 }

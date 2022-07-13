@@ -1,8 +1,8 @@
-import React, { FC } from 'react'
+import React, { FC, memo } from 'react'
 
 import { IAlert } from 'interfaces'
 
-const Alert: FC<IAlert> = ({ title, description }): JSX.Element => {
+const Alert: FC<IAlert> = memo(({ title, description }): JSX.Element => {
 	return (
 		<div className="text-slate-100 bg-slate-800">
 			<div className="mx-auto max-w-7xl py-3 px-3 sm:px-6 lg:px-8">
@@ -19,6 +19,6 @@ const Alert: FC<IAlert> = ({ title, description }): JSX.Element => {
 			</div>
 		</div>
 	)
-}
+})
 
 export default Alert

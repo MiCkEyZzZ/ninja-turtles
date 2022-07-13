@@ -1,4 +1,6 @@
-const SkeletonLoader = (): JSX.Element => {
+import { memo } from 'react'
+
+const SkeletonLoader = memo((): JSX.Element => {
 	return (
 		<figure className="animate-pulse grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 grid-rows-1 lg:grid-rows-1 border dark:border-slate-800 shadow rounded-xl w-full mx-auto overflow-hidden">
 			<div className="rounded-none bg-gray-400 dark:bg-slate-700 md:max-w-xs w-full h-64 md:h-48"></div>
@@ -18,6 +20,6 @@ const SkeletonLoader = (): JSX.Element => {
 			</div>
 		</figure>
 	)
-}
+})
 
 export default SkeletonLoader

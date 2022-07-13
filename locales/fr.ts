@@ -1,4 +1,4 @@
-export const en = {
+export const fr = {
 	name: 'Французский',
 	header: {
 		linkOne: 'Documentation',

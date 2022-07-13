@@ -1,11 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import fs from 'fs'
 
 import { IDocs } from '../../interfaces'
-import siteConfig from '../../config/siteConfig'
 import DocsLayout from '../../layouts/docs'
-import { MobilSidebar, Sidebar } from '../../components'
 import markdownToHtml from '../../lib/markdownToHtml'
 import matter from 'gray-matter'
 import path from 'path'
@@ -17,8 +15,6 @@ import MDX from '@mdx-js/runtime'
 const components = {}
 
 const Doc = ({ doc }: { doc: IDocs }): JSX.Element => {
-	const [stateSidebar, setStateSideBar] = useState(true)
-
 	return (
 		<DocsLayout doc={doc}>
 			<div className="grid grid-cols-1 grid-rows-1 px-3 sm:px-6 md:px-6 lg:px-8 overflow-hidden">
@@ -27,8 +23,6 @@ const Doc = ({ doc }: { doc: IDocs }): JSX.Element => {
 						<MDX>{doc.content}</MDX>
 					</MDXProvider>
 				</div>
-				<Sidebar links={siteConfig.sitebar} />
-				{stateSidebar && <MobilSidebar setStateSideBar={setStateSideBar} />}
 			</div>
 		</DocsLayout>
 	)
@@ -63,7 +57,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 			{ params: { doc: 'episodes' } },
 			{ params: { doc: 'libraries' } },
 		],
-		fallback: false,
+		fallback: true,
 	}
 }
 

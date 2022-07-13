@@ -15,7 +15,7 @@ export default class TurtlesDocument extends Document {
 						rel="stylesheet"
 					/>
 				</Head>
-				<body className="bg-white dark:bg-black text-white dark:text-black">
+				<body>
 					<Main />
 					<NextScript />
 				</body>

@@ -51,37 +51,9 @@ export const getStaticProps: GetStaticProps = async (props) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	return {
-		paths: [{ params: { support: 'support-us' } }],
-		fallback: false,
+		paths: [{ params: { support: 'support-us' }, locale: 'ru' }],
+		fallback: true,
 	}
 }
 
 export default SupportPage
-
-/*
-export const getStaticProps: GetStaticProps = async (props) => {
-	const folderPath = path.join(process.cwd(), 'data/snippets')
-	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-	// @ts-ignore
-	const filePath = path.join(folderPath, `${props.params.support}.mdx`)
-	const rawFileSource = fs.readFileSync(filePath)
-
-	const { content, data } = matter(rawFileSource)
-
-	return {
-		props: {
-			support: {
-				...data,
-				content,
-			},
-		},
-	}
-}
-
-export const getStaticPaths: GetStaticPaths = async () => {
-	return {
-		paths: [{ params: { support: 'support-us' } }],
-		fallback: false,
-	}
-}
-*/

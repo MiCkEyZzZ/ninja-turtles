@@ -1,11 +1,11 @@
-import React, { FC, useEffect, useRef } from 'react'
+import React, { FC, memo, useEffect, useRef } from 'react'
 import Link from 'next/link'
 
 import { IPopover } from '../interfaces'
 import { LanguageIcon, RssIcon } from '../public/assets'
 import { ButtonIcon, ExternalLink } from '.'
 
-const Popover: FC<IPopover> = ({ theme, setTheme, onClose }): JSX.Element => {
+const Popover: FC<IPopover> = memo(({ theme, setTheme, onClose }): JSX.Element => {
 	const menuRef = useRef<HTMLDivElement>(null)
 
 	const handleClickOutside = (event: MouseEvent): void => {
@@ -108,6 +108,6 @@ const Popover: FC<IPopover> = ({ theme, setTheme, onClose }): JSX.Element => {
 			</div>
 		</div>
 	)
-}
+})
 
 export default Popover

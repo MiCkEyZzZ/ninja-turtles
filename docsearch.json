@@ -1,0 +1,18 @@
+{
+  "index_name": "docs",
+  "start_urls": [
+    "https://http://localhost:3000/"
+  ],
+  "sitemap_urls": [
+    "https://http://localhost:3000/sitemap.xml"
+  ],
+  "selectors": {
+    "lvl0": ".page-heading",
+    "lvl1": "#introduction article h5",
+    "lvl2": "#character article h5",
+    "lvl3": "#location article h5",
+    "lvl4": "#episode h5",
+    "lvl5": "h5",
+    "text": "p"
+  }
+}
