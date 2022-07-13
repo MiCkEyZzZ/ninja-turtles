@@ -34,25 +34,8 @@ module.exports = {
 		return config
 	},
 	i18n: {
-		locales: ['ru', 'en-Us', 'fr', 'de', 'it', 'es', 'hi', 'zh'],
+		locales: ['ru', 'en', 'fr', 'de', 'it', 'es', 'hi', 'zh'],
 		defaultLocale: 'ru',
-		domains: [
-			{
-				domain: 'ninjaturtlesapi.com',
-				defaultLocale: 'en-US',
-			},
-			{
-				domain: 'ninjaturtlesapi.nl',
-				defaultLocale: 'nl-NL',
-			},
-			{
-				domain: 'ninjaturtlesapi.fr',
-				defaultLocale: 'fr',
-				// an optional http field can also be used to test
-				// locale domains locally with http instead of https
-				http: true,
-			},
-		],
 	},
 	reloadOnPrerender: process.env.NODE_ENV === 'development',
 	nextConfig,

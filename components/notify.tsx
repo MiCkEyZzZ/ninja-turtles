@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { memo } from 'react'
+import { useRouter } from 'next/router'
+
+import { ru } from '../locales/ru'
+import { en } from '../locales/en'
 
 import { ExternalLink } from '.'
 
-const Notify = (): JSX.Element => {
+const Notify = memo((): JSX.Element => {
+	const router = useRouter()
+	const t = router.locale === 'ru' ? ru : en
+
 	return (
-		<section className="w-full px-3 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-600">
+		<section className="w-full px-3 sm:px-6 lg:px-8 mt-20 lg:mt-32 bg-slate-50 dark:bg-slate-600">
 			<h2 className="sr-only">Информационное сообщение</h2>
 			<div className="max-w-screen-2xl w-full m-auto py-7 sm-py-7 md:py-7 lg:py-7">
 				<div className="flex flex-col md:flex-row justify-between w-full items-center lg:px-0">
@@ -31,11 +38,9 @@ const Notify = (): JSX.Element => {
 						</div>
 						<div className="flex flex-col justify-center text-center sm:text-left py-1 mb-4 md:mb-0">
 							<h1 className="p-0 m-0 text-xl font-semibold text-gray-750 dark:text-gray-0 tracking-wide">
-								Общайтесь с сообществом
+								{t.notify.title}
 							</h1>
-							<p className="mt-2 opacity-70 text-gray-750 dark:text-gray-0 tracking-wide">
-								Не стесняйтесь задавать вопросы, сообщать о проблемах и знакомиться с новыми людьми.
-							</p>
+							<p className="mt-2 opacity-70 text-gray-750 dark:text-gray-0 tracking-wide">{t.notify.description}</p>
 						</div>
 					</div>
 					<ExternalLink
@@ -43,12 +48,12 @@ const Notify = (): JSX.Element => {
 						className="bg-primary hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-400 dark:focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 dark:focus:ring-offset-sky-300 text-white-900 dark:text-gray-0 font-semibold h-12 px-6 rounded-lg w-full flex items-center dark:ring-0 justify-center sm:w-auto dark:bg-sky-500 dark:highlight-white/5 dark:hover:bg-sky-400"
 						title="Ссылка позволяющая перейти в группу The Ninja Turtles API в мессенджере Telegram"
 					>
-						@TNTAPI
+						{t.notify.button}
 					</ExternalLink>
 				</div>
 			</div>
 		</section>
 	)
-}
+})
 
 export default Notify

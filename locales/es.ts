@@ -1,4 +1,4 @@
-export const en = {
+export const es = {
 	name: 'Испанский',
 	header: {
 		linkOne: 'Docs',

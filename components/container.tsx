@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState, KeyboardEvent, useRef } from 'react'
+import React, { FC, useEffect, useState, KeyboardEvent, useRef, memo } from 'react'
 import Head from 'next/head'
 import { useTheme } from 'next-themes'
 
@@ -6,7 +6,7 @@ import siteConfig from '../config/siteConfig'
 import { ILayout } from '../interfaces'
 import { Header, Footer, Popover } from './index'
 
-const Container: FC<ILayout> = (props): JSX.Element => {
+const Container: FC<ILayout> = memo((props): JSX.Element => {
 	const { title, description, themeColor, image } = siteConfig
 	const { children, ...customMeta } = props
 	const { theme, setTheme } = useTheme()
@@ -49,20 +49,28 @@ const Container: FC<ILayout> = (props): JSX.Element => {
 		<div className="wrapper antialiased">
 			<Head>
 				<meta charSet="utf-8" />
-				<meta content="IE=edge" httpEquiv="X-UA-Compatible" />
-				<meta content="width=device-width, initial-scale=1" name="viewport" />
-				<meta name="robots" content="follow, index" />
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+				<meta name="Михаил" content="Михаил Журавлёв" />
 				<meta name="description" content={meta.description} />
+
+				<meta content="IE=edge" httpEquiv="X-UA-Compatible" />
+				<meta name="robots" content="follow, index" />
+
 				<meta property="og:type" content={meta.type} />
 				<meta property="og:site_name" content="The Ninja Turtles API" />
 				<meta property="og:description" content={meta.description} />
 				<meta property="og:title" content={meta.title} />
 				<meta property="og:image" content={meta.image} />
+				<meta property="og:url" content="/this-page.html" />
+				<meta property="og:site_name" content="Your Site Name" />
+
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta name="twitter:site" content="ninjaturtlesapi" />
 				<meta name="twitter:title" content={meta.title} />
 				<meta name="twitter:description" content={meta.description} />
-				<meta name="twitter:image" content={meta.image} />
+				<meta name="twitter:image:alt" content={meta.image} />
+
 				<meta content={meta.themeColor} name="theme-color" />
 				<meta content={meta.themeColor} name="msapplication-TileColor" />
 				<title>{meta.title}</title>
@@ -87,6 +95,6 @@ const Container: FC<ILayout> = (props): JSX.Element => {
 			{menu && <Popover theme={theme} setTheme={setTheme} onClose={handleCloseMenu} />}
 		</div>
 	)
-}
+})
 
 export default Container

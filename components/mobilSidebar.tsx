@@ -1,13 +1,14 @@
-import React, { FC } from 'react'
+import React, { FC, memo } from 'react'
+
 import { ButtonIcon, ExternalLink } from '.'
 
 interface IMobileSidebarProps {
 	setStateSideBar: (arg0: boolean) => void
 }
 
-const MobilSidebar: FC<IMobileSidebarProps> = ({ setStateSideBar }): JSX.Element => {
+const MobilSidebar: FC<IMobileSidebarProps> = memo(({ setStateSideBar }): JSX.Element => {
 	return (
-		<div className="fixed z-50 inset-0 overflow-y-auto lg:hidden">
+		<aside className="fixed z-50 inset-0 overflow-y-auto lg:hidden">
 			<div className="fixed inset-0 bg-black/20 backdrop-blur-sm dark:bg-slate-900/80"></div>
 			<div className="relative bg-gray-0 w-96 max-w-[calc(100%-3rem)] p-6 dark:bg-gray-750">
 				<ButtonIcon
@@ -29,7 +30,7 @@ const MobilSidebar: FC<IMobileSidebarProps> = ({ setStateSideBar }): JSX.Element
 							<ul className="space-y-6 lg:space-y-2 border-l border-slate-100 dark:border-slate-700">
 								<li>
 									<a
-										className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300"
+										className="block font-semibold pl-4 -ml-px text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300 border-transparent hover:border-slate-400 dark:hover:border-slate-500 border-l"
 										href="/docs/graphql"
 									>
 										GraphQL
@@ -37,7 +38,7 @@ const MobilSidebar: FC<IMobileSidebarProps> = ({ setStateSideBar }): JSX.Element
 								</li>
 								<li>
 									<a
-										className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300"
+										className="block font-semibold pl-4 -ml-px text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300 border-transparent hover:border-slate-400 dark:hover:border-slate-500 border-l"
 										href="/docs/rest"
 									>
 										REST
@@ -45,7 +46,7 @@ const MobilSidebar: FC<IMobileSidebarProps> = ({ setStateSideBar }): JSX.Element
 								</li>
 								<li>
 									<a
-										className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300"
+										className="block font-semibold pl-4 -ml-px text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300 border-transparent hover:border-slate-400 dark:hover:border-slate-500 border-l"
 										href="/docs/info-pagination"
 									>
 										Информация и пагинация
@@ -58,7 +59,7 @@ const MobilSidebar: FC<IMobileSidebarProps> = ({ setStateSideBar }): JSX.Element
 							<ul className="space-y-6 lg:space-y-2 border-l border-slate-100 dark:border-slate-700">
 								<li>
 									<a
-										className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300"
+										className="block font-semibold pl-4 -ml-px text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300 border-transparent hover:border-slate-400 dark:hover:border-slate-500 border-l"
 										href="/docs/schema-character"
 									>
 										Схема персонажа
@@ -66,7 +67,7 @@ const MobilSidebar: FC<IMobileSidebarProps> = ({ setStateSideBar }): JSX.Element
 								</li>
 								<li>
 									<a
-										className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300"
+										className="block font-semibold pl-4 -ml-px text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300 border-transparent hover:border-slate-400 dark:hover:border-slate-500 border-l"
 										href="/docs/hover-focus-and-other-states"
 									>
 										Получить всех персонажей
@@ -74,7 +75,7 @@ const MobilSidebar: FC<IMobileSidebarProps> = ({ setStateSideBar }): JSX.Element
 								</li>
 								<li>
 									<a
-										className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300"
+										className="block font-semibold pl-4 -ml-px text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300 border-transparent hover:border-slate-400 dark:hover:border-slate-500 border-l"
 										href="/docs/responsive-design"
 									>
 										Получить одного персонажа
@@ -82,7 +83,7 @@ const MobilSidebar: FC<IMobileSidebarProps> = ({ setStateSideBar }): JSX.Element
 								</li>
 								<li>
 									<a
-										className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300"
+										className="block font-semibold pl-4 -ml-px text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300 border-transparent hover:border-slate-400 dark:hover:border-slate-500 border-l"
 										href="/docs/dark-mode"
 									>
 										Получить несколько персонажей
@@ -90,7 +91,7 @@ const MobilSidebar: FC<IMobileSidebarProps> = ({ setStateSideBar }): JSX.Element
 								</li>
 								<li>
 									<a
-										className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300"
+										className="block font-semibold pl-4 -ml-px text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300 border-transparent hover:border-slate-400 dark:hover:border-slate-500 border-l"
 										href="/docs/reusing-styles"
 									>
 										Фильтр персонажей
@@ -103,7 +104,7 @@ const MobilSidebar: FC<IMobileSidebarProps> = ({ setStateSideBar }): JSX.Element
 							<ul className="space-y-6 lg:space-y-2 border-l border-slate-100 dark:border-slate-700">
 								<li>
 									<a
-										className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300"
+										className="block font-semibold pl-4 -ml-px text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300 border-transparent hover:border-slate-400 dark:hover:border-slate-500 border-l"
 										href="/docs/configuration"
 									>
 										Схема местоположения
@@ -111,7 +112,7 @@ const MobilSidebar: FC<IMobileSidebarProps> = ({ setStateSideBar }): JSX.Element
 								</li>
 								<li>
 									<a
-										className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300"
+										className="block font-semibold pl-4 -ml-px text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300 border-transparent hover:border-slate-400 dark:hover:border-slate-500 border-l"
 										href="/docs/content-configuration"
 									>
 										Получить все местоположения
@@ -119,7 +120,7 @@ const MobilSidebar: FC<IMobileSidebarProps> = ({ setStateSideBar }): JSX.Element
 								</li>
 								<li>
 									<a
-										className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300"
+										className="block font-semibold pl-4 -ml-px text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300 border-transparent hover:border-slate-400 dark:hover:border-slate-500 border-l"
 										href="/docs/theme"
 									>
 										Получить одно местоположение
@@ -127,7 +128,7 @@ const MobilSidebar: FC<IMobileSidebarProps> = ({ setStateSideBar }): JSX.Element
 								</li>
 								<li>
 									<a
-										className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300"
+										className="block font-semibold pl-4 -ml-px text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300 border-transparent hover:border-slate-400 dark:hover:border-slate-500 border-l"
 										href="/docs/screens"
 									>
 										Получить несколько местоположений
@@ -135,7 +136,7 @@ const MobilSidebar: FC<IMobileSidebarProps> = ({ setStateSideBar }): JSX.Element
 								</li>
 								<li>
 									<a
-										className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300"
+										className="block font-semibold pl-4 -ml-px text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300 border-transparent hover:border-slate-400 dark:hover:border-slate-500 border-l"
 										href="/docs/customizing-colors"
 									>
 										Фильтр местоположений
@@ -148,7 +149,7 @@ const MobilSidebar: FC<IMobileSidebarProps> = ({ setStateSideBar }): JSX.Element
 							<ul className="space-y-6 lg:space-y-2 border-l border-slate-100 dark:border-slate-700">
 								<li>
 									<a
-										className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300"
+										className="block font-semibold pl-4 -ml-px text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300 border-transparent hover:border-slate-400 dark:hover:border-slate-500 border-l"
 										href="/docs/preflight"
 									>
 										Схема серии
@@ -156,7 +157,7 @@ const MobilSidebar: FC<IMobileSidebarProps> = ({ setStateSideBar }): JSX.Element
 								</li>
 								<li>
 									<a
-										className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300"
+										className="block font-semibold pl-4 -ml-px text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300 border-transparent hover:border-slate-400 dark:hover:border-slate-500 border-l"
 										href="/docs/preflight"
 									>
 										Получить все серии
@@ -164,7 +165,7 @@ const MobilSidebar: FC<IMobileSidebarProps> = ({ setStateSideBar }): JSX.Element
 								</li>
 								<li>
 									<a
-										className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300"
+										className="block font-semibold pl-4 -ml-px text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300 border-transparent hover:border-slate-400 dark:hover:border-slate-500 border-l"
 										href="/docs/preflight"
 									>
 										Получить одну серию
@@ -172,7 +173,7 @@ const MobilSidebar: FC<IMobileSidebarProps> = ({ setStateSideBar }): JSX.Element
 								</li>
 								<li>
 									<a
-										className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300"
+										className="block font-semibold pl-4 -ml-px text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300 border-transparent hover:border-slate-400 dark:hover:border-slate-500 border-l"
 										href="/docs/preflight"
 									>
 										Получить несколько серий
@@ -180,7 +181,7 @@ const MobilSidebar: FC<IMobileSidebarProps> = ({ setStateSideBar }): JSX.Element
 								</li>
 								<li>
 									<a
-										className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300"
+										className="block font-semibold pl-4 -ml-px text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300 border-transparent hover:border-slate-400 dark:hover:border-slate-500 border-l"
 										href="/docs/preflight"
 									>
 										Фтльтр серий
@@ -193,7 +194,7 @@ const MobilSidebar: FC<IMobileSidebarProps> = ({ setStateSideBar }): JSX.Element
 							<ul className="space-y-6 lg:space-y-2 border-l border-slate-100 dark:border-slate-700">
 								<li>
 									<ExternalLink
-										className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300"
+										className="block font-semibold pl-4 -ml-px text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300 border-transparent hover:border-slate-400 dark:hover:border-slate-500 border-l"
 										href="/docs/optimizing-for-production"
 									>
 										JavaScript
@@ -201,7 +202,7 @@ const MobilSidebar: FC<IMobileSidebarProps> = ({ setStateSideBar }): JSX.Element
 								</li>
 								<li>
 									<ExternalLink
-										className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300"
+										className="block font-semibold pl-4 -ml-px text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300 border-transparent hover:border-slate-400 dark:hover:border-slate-500 border-l"
 										href="/docs/aspect-ratio"
 									>
 										Go
@@ -209,7 +210,7 @@ const MobilSidebar: FC<IMobileSidebarProps> = ({ setStateSideBar }): JSX.Element
 								</li>
 								<li>
 									<ExternalLink
-										className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300"
+										className="block font-semibold pl-4 -ml-px text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300 border-transparent hover:border-slate-400 dark:hover:border-slate-500 border-l"
 										href="/docs/container"
 									>
 										Python
@@ -217,7 +218,7 @@ const MobilSidebar: FC<IMobileSidebarProps> = ({ setStateSideBar }): JSX.Element
 								</li>
 								<li>
 									<ExternalLink
-										className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300"
+										className="block font-semibold pl-4 -ml-px text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300 border-transparent hover:border-slate-400 dark:hover:border-slate-500 border-l"
 										href="/docs/columns"
 									>
 										Ruby
@@ -225,7 +226,7 @@ const MobilSidebar: FC<IMobileSidebarProps> = ({ setStateSideBar }): JSX.Element
 								</li>
 								<li>
 									<ExternalLink
-										className="block border-l pl-4 -ml-px border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300"
+										className="block font-semibold pl-4 -ml-px text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-300 border-transparent hover:border-slate-400 dark:hover:border-slate-500 border-l"
 										href="/docs/break-after"
 									>
 										PHP
@@ -236,8 +237,8 @@ const MobilSidebar: FC<IMobileSidebarProps> = ({ setStateSideBar }): JSX.Element
 					</ul>
 				</nav>
 			</div>
-		</div>
+		</aside>
 	)
-}
+})
 
 export default MobilSidebar

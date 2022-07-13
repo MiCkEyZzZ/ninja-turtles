@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState, KeyboardEvent } from 'react'
+import React, { FC, useEffect, useState, KeyboardEvent, memo } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
@@ -7,7 +7,7 @@ import { IHeader } from '../interfaces'
 import { ActiveLink, ButtonIcon, ExternalLink } from './index'
 import { GithubIcon, LanguageIcon, LogoIcon, RssIcon } from '../public/assets/index'
 
-const Header: FC<IHeader> = ({ navigation, onToggle }): JSX.Element => {
+const Header: FC<IHeader> = memo(({ navigation, onToggle }): JSX.Element => {
 	const [mounted, setMounted] = useState(false)
 	const { resolvedTheme, setTheme } = useTheme()
 
@@ -48,7 +48,7 @@ const Header: FC<IHeader> = ({ navigation, onToggle }): JSX.Element => {
 					: 'fixed mx-auto w-full bg-gray-0 dark:bg-gray-750 border-gray-150 dark:border-gray-800 border-b z-10'
 			}
 		>
-			<div className="max-w-screen-2xl flex flex-row justify-between md:container md:mx-auto h-16 items-center px-3 sm:px-6 md:px-8">
+			<div className="max-w-screen-2xl flex flex-row justify-between md:container md:mx-auto h-16 items-center px-3 sm:px-6 md:px-0">
 				<div className="flex items-center">
 					<Link href="/" title="Главный логотип и ссылка на главную страницу">
 						<a className="flex h-max pt-3 px-2 outline-offset-1" title="Логотип сайта">
@@ -147,6 +147,6 @@ const Header: FC<IHeader> = ({ navigation, onToggle }): JSX.Element => {
 			</div>
 		</header>
 	)
-}
+})
 
 export default Header

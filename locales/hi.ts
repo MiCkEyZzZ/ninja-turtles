@@ -1,4 +1,4 @@
-export const en = {
+export const hi = {
 	name: 'Индийский',
 	header: {
 		linkOne: 'डॉक्स',
